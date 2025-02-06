@@ -82,19 +82,23 @@ const Banner = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
         >
-          <motion.img
-            src="https://i.ibb.co.com/RhH5LXB/profile-pic-1.png"
-            alt="Profile"
-            className="w-3/5 border-4 border-blue-400 rounded-full shadow-lg"
-            style={{
-              filter: "brightness(1.2)",
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              repeatType: "loop",
-            }}
-          />
+         <motion.img
+  src="https://i.ibb.co.com/RTf509XH/Aysha.jpg"
+  alt="Profile"
+  className="w-3/5 border-4 border-blue-400 rounded-full shadow-lg h-90 "
+  style={{
+    filter: "brightness(1.2)",
+  }}
+  animate={{
+    //scale: [1, 1.2, 1], // Zoom in and out effect
+  }}
+  transition={{
+    duration: 2,
+    repeat: Infinity,
+    //repeatType: "reverse", // Reverses the zoom effect
+  }}
+/>
+
         </motion.div>
       </motion.div>
     </motion.div>

@@ -18,7 +18,7 @@ const Navbar = () => {
         <ul className="flex space-x-6">
           <li>
             <Link
-              to="#about"
+              to="/about"
               className="flex items-center space-x-2 font-bold text-white border-blue-400 rounded-full btn btn-outline hover:bg-blue-400 hover:text-white"
             >
               <AiOutlineHome className="text-xl" />
