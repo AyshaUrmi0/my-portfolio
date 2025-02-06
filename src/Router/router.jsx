@@ -6,7 +6,10 @@ import MainLayout from "../Layout/MainLayout";
 import HeroSection from "../components/HeroSection";
 import AboutMe from "../components/Aboutme";
 import Education from "../components/Education";
-import Experience from "../components/Experience";
+import Experience from "../components/Experience"
+import Skills from "../components/Skills";
+import Projects from "../components/Projects";
+import ContactInfo from "../components/ContactInfo";
 
 
 export const router = createBrowserRouter([
@@ -19,9 +22,13 @@ export const router = createBrowserRouter([
           element: (
             <div className="">
               <HeroSection /> 
-              <AboutMe />  
+              <AboutMe /> 
+              <Skills/> 
               <Education />
-              <Experience/>      
+              <Experience/> 
+              <Projects/>
+              <ContactInfo/>
+                 
             </div>
           ),
         },
