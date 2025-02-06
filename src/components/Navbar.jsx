@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
+//import { Link } from "react-router-dom";
 import { AiOutlineHome, AiOutlineFolderOpen, AiOutlineBook } from "react-icons/ai";
 import DownloadResumeButton from "./DownloadResumeButton";
 
@@ -18,7 +19,7 @@ const Navbar = () => {
         <ul className="flex space-x-6">
           <li>
             <Link
-              to="/about"
+              to="#about"
               className="flex items-center space-x-2 font-bold text-white border-blue-400 rounded-full btn btn-outline hover:bg-blue-400 hover:text-white"
             >
               <AiOutlineHome className="text-xl" />
@@ -89,7 +90,7 @@ const Navbar = () => {
           <ul className="flex flex-col gap-4 p-4 text-center">
             <li>
               <Link
-                to="#about"
+                 to="#about"
                 className="flex items-center space-x-2 font-bold text-white border-blue-400 rounded-full btn btn-outline hover:bg-blue-400 hover:text-white"
                 onClick={() => setMenuOpen(false)}
               >

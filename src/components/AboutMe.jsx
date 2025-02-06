@@ -12,7 +12,7 @@ const AboutMe = () => {
         { icon: <FaUsers />, text: "Team Management & Mentoring" },
     ];
     return (
-        <div className="px-6 py-16 md:px-12 bg-gray-950">
+        <div className="px-6 py-16 md:px-12 bg-gray-950" id="about" >
             <motion.div
                 className="max-w-4xl mx-auto text-center"
                 initial={{ opacity: 0, y: 50 }}

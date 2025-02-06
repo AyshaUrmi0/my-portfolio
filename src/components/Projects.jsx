@@ -5,30 +5,30 @@ import { Link } from "react-router-dom";
 
 const projects = [
   {
-    name: "Gadget Heaven",
-    image: "/images/gadget-heaven.png", // Replace with actual project image
+    name: "FindConnect",
+    image: "/public/image/findconnect.png", // Replace with actual project image
     techStack: ["React", "Tailwind CSS", "Firebase", "Node.js", "MongoDB"],
     description:
-      "An e-commerce platform for buying and managing gadgets, featuring cart and wishlist functionalities.",
-    liveLink: "https://playful-meerkat-99f2e1.netlify.app/",
-    github: "https://github.com/your-username/gadget-heaven",
+      "FindConnect is a platform designed to help people find and recover lost items. ",
+    liveLink: "https://findconnect-45273.web.app/",
+    github: "https://github.com/AyshaUrmi0/FindConnect",
     challenges: [
       "Managing state efficiently across multiple components.",
       "Optimizing performance for large datasets.",
     ],
     futurePlans: [
-      "Implement a user authentication system.",
+    
       "Enhance the UI with animations and dark mode.",
     ],
   },
   {
-    name: "Donation Platform",
-    image: "/images/donation-platform.png",
+    name: "TechSpring",
+    image: "/public/image/TechSpring.png",
     techStack: ["React", "Tailwind CSS", "DaisyUI", "Express.js", "MongoDB"],
     description:
-      "A platform to facilitate donations with multiple categories and real-time tracking.",
-    liveLink: "https://your-donation-platform.netlify.app/",
-    github: "https://github.com/your-username/donation-platform",
+      "TechSpring-Client is a web application designed to facilitate the funding of tech startups, creative ideas, and personal causes.",
+    liveLink: "https://techspring-ec865.web.app/",
+    github: "https://github.com/AyshaUrmi0/Tech-startup?tab=readme-ov-file",
     challenges: [
       "Ensuring secure transactions and user authentication.",
       "Creating a dynamic real-time donation tracker.",
@@ -39,15 +39,15 @@ const projects = [
     ],
   },
   {
-    name: "Cricket Team Selection App",
-    image: "/images/cricket-team.png",
+    name: "Winter Kindness Hub",
+    image: "/public/image/WinterKindnessHub.png",
     techStack: ["React", "React Router", "JSON Server", "Framer Motion"],
     description:
-      "An application that allows users to select and manage a cricket team with a budget constraint.",
-    liveLink: "https://jolly-snickerdoodle-4f276a.netlify.app/",
-    github: "https://github.com/your-username/cricket-team-app",
+      "A winter donation web application that connects donors with volunteers to provide winter clothing to those in need across Bangladesh. ",
+    liveLink: "https://winter-kindness-hub.web.app/",
+    github: "https://github.com/AyshaUrmi0/Winter-Kindness-Hub",
     challenges: [
-      "Handling budget constraints dynamically while selecting players.",
+      
       "Ensuring smooth UI/UX transitions with animations.",
     ],
     futurePlans: [
