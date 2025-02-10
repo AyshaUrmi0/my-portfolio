@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const projects = [
   {
     name: "FindConnect",
-    image: "/public/image/findconnect.png", // Replace with actual project image
+    image: "/image/findconnect.png", // Replace with actual project image
     techStack: ["React", "Tailwind CSS", "Firebase", "Node.js", "MongoDB"],
     description:
       "FindConnect is a platform designed to help people find and recover lost items. ",
@@ -23,7 +23,7 @@ const projects = [
   },
   {
     name: "TechSpring",
-    image: "/public/image/TechSpring.png",
+    image: "/image/TechSpring.png",
     techStack: ["React", "Tailwind CSS", "DaisyUI", "Express.js", "MongoDB"],
     description:
       "TechSpring-Client is a web application designed to facilitate the funding of tech startups, creative ideas, and personal causes.",
@@ -40,7 +40,7 @@ const projects = [
   },
   {
     name: "Winter Kindness Hub",
-    image: "/public/image/WinterKindnessHub.png",
+    image: "/image/WinterKindnessHub.png",
     techStack: ["React", "React Router", "JSON Server", "Framer Motion"],
     description:
       "A winter donation web application that connects donors with volunteers to provide winter clothing to those in need across Bangladesh. ",
@@ -80,12 +80,13 @@ const Projects = () => {
                 <h3 className="mb-2 text-xl font-bold">{project.name}</h3>
                 <p className="text-sm text-gray-400">{project.description}</p>
                 <div className="mt-4 space-x-2">
-                  <Link
-                    to={`/projects/${index}`}
-                    className="px-4 py-2 text-sm font-bold text-gray-900 transition bg-blue-500 border border-blue-600 rounded-lg shadow-lg hover:bg-blue-700 hover:text-white hover:shadow-blue-500/50"
-                  >
-                    View More
-                  </Link>
+                <Link
+  to={`/projects/${index}`}
+  className="px-4 py-2 text-sm font-bold text-gray-900 transition bg-blue-500 border border-blue-600 rounded-lg shadow-lg hover:bg-blue-700 hover:text-white hover:shadow-blue-500/50"
+>
+  View More
+</Link>
+
                   <a
                     href={project.liveLink}
                     target="_blank"

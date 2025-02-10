@@ -10,6 +10,7 @@ import Experience from "../components/Experience"
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import ContactInfo from "../components/ContactInfo";
+import ProjectDetails from "../components/ProjectDetails";
 
 
 export const router = createBrowserRouter([
@@ -20,7 +21,7 @@ export const router = createBrowserRouter([
         {
           index: true,
           element: (
-            <div className="">
+            <div >
               <HeroSection /> 
               <AboutMe /> 
               <Skills/> 
@@ -31,6 +32,11 @@ export const router = createBrowserRouter([
                  
             </div>
           ),
+        },
+
+        {
+          path: "/projects/:id", 
+          element: <ProjectDetails />,
         },
       ],
     },

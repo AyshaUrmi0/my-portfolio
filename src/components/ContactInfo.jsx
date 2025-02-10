@@ -1,21 +1,42 @@
 import React, { useState } from "react";
-import { Mail, Phone, MessageSquare } from "lucide-react"; // Use Lucide React icons
+import { Mail, Phone, MessageSquare } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 const ContactInfo = () => {
-  // State to store form inputs
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [isSent, setIsSent] = useState(false);
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Construct the mailto link with user input
-    const mailtoLink = `mailto:your-email@example.com?subject=Contact Form Submission from ${name}&body=Name: ${name}%0D%0AEmail: ${email}%0D%0AMessage: ${message}`;
-    
-    // Redirect to the mailto link
-    window.location.href = mailtoLink;
+    const templateParams = {
+      to_email: "ayshaismail021@gmail.com", // Fixed recipient email
+      from_name: name, // Sender's name (from input)
+      from_email: email, // Sender's email (from input)
+      message,
+    };
+
+    emailjs
+      .send(
+        "service_cm2iaqh", // Your EmailJS Service ID
+        "template_6i9krt8", // Your EmailJS Template ID
+        templateParams,
+        "MwSfVk9yESTCcLLUg" // Your EmailJS Public Key
+      )
+      .then(
+        (response) => {
+          console.log("Email sent successfully!", response);
+          setIsSent(true);
+          setName("");
+          setEmail("");
+          setMessage("");
+        },
+        (error) => {
+          console.error("Email failed to send", error);
+        }
+      );
   };
 
   return (
@@ -27,50 +48,36 @@ const ContactInfo = () => {
           I'll try my best to get back to you! Feel free to mail me about any relevant job updates.
         </p>
 
-        {/* Contact Details */}
         <div className="mb-8 space-y-6">
-          {/* Email Section */}
           <div className="flex items-center space-x-4">
             <Mail size={24} className="text-blue-400" />
-            <a
-              href="mailto:your-email@example.com"
-              className="text-lg text-gray-300 hover:text-white"
-            >
-              your-email@example.com
+            <a href="mailto:ayshaismail021@gmail.com" className="text-lg text-gray-300 hover:text-white">
+              ayshaismail021@gmail.com
             </a>
           </div>
 
-          {/* Phone Section */}
           <div className="flex items-center space-x-4">
             <Phone size={24} className="text-green-400" />
-            <a
-              href="tel:+your-phone-number"
-              className="text-lg text-gray-300 hover:text-white"
-            >
+            <a href="tel:+your-phone-number" className="text-lg text-gray-300 hover:text-white">
               +your-phone-number
             </a>
           </div>
 
-          {/* WhatsApp Section */}
           <div className="flex items-center space-x-4">
             <MessageSquare size={24} className="text-green-500" />
-            <a
-              href="https://wa.me/your-whatsapp-number"
-              className="text-lg text-gray-300 hover:text-white"
-            >
+            <a href="https://wa.me/your-whatsapp-number" className="text-lg text-gray-300 hover:text-white">
               WhatsApp: +your-whatsapp-number
             </a>
           </div>
         </div>
 
-        {/* Contact Form */}
         <div className="mb-6">
           <h3 className="text-xl font-bold text-center">Send a Message</h3>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <input
                 type="text"
-                name="name"
+                name="from_name"
                 placeholder="Your Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -81,7 +88,7 @@ const ContactInfo = () => {
             <div>
               <input
                 type="email"
-                name="email"
+                name="from_email"
                 placeholder="Your Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -109,6 +116,12 @@ const ContactInfo = () => {
               </button>
             </div>
           </form>
+
+          {isSent && (
+            <p className="mt-4 text-lg font-semibold text-center text-green-400">
+              ✅ Message sent successfully!
+            </p>
+          )}
         </div>
       </div>
     </div>

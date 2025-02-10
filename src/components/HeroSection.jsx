@@ -38,9 +38,10 @@ const Banner = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
- Over the past months, I have honed my skills in React, Node.js, MongoDB, and full-stack development, while also exploring machine learning techniques. 
+ Over the past months, I have honed my skills in React, Node.js, MongoDB, and full-stack development. 
  <br />
- I enjoy learning new technologies and applying them to real-world projects, constantly challenging myself to build efficient, scalable, and user-centric solutions.        </motion.p>
+ {/* I enjoy learning new technologies and applying them to real-world projects, constantly challenging myself to build efficient, scalable, and user-centric solutions.        */}
+  </motion.p>
 
         {/* Social Icons */}
         <motion.div className="flex gap-6 mt-4">
@@ -83,9 +84,9 @@ const Banner = () => {
           transition={{ duration: 1, delay: 1 }}
         >
          <motion.img
-  src="https://i.ibb.co.com/RTf509XH/Aysha.jpg"
+  src="https://i.ibb.co.com/ZzCfQZrH/Aysha-removebg-preview.png"
   alt="Profile"
-  className="w-3/5 border-4 border-blue-400 rounded-full shadow-lg h-90 "
+  className="w-3/5 border-4 border-blue-400 rounded-full shadow-lg "
   style={{
     filter: "brightness(1.2)",
   }}

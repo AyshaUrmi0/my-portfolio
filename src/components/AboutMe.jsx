@@ -44,7 +44,7 @@ const AboutMe = () => {
                     transition={{ duration: 0.8, delay: 0.6 }}
                 >
                     I’m a dedicated, goal-oriented individual with a passion for learning and problem-solving. 
-                    Alongside coding, I enjoy <span className="font-medium">football</span>, <span className="font-medium">reading books</span>, and <span className="font-medium">exploring new places</span>.  
+                    Alongside coding, I enjoy <span className="font-medium">Coding</span>, <span className="font-medium">reading books</span>, and <span className="font-medium">exploring new places</span>.  
                     I thrive in collaborative environments and always strive to improve my skills.
                 </motion.p>
                 <motion.div
