@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { HashLink as Link } from 'react-router-hash-link';
-
+import { useTheme } from "../context/ThemeContext";
 
 const projects = [
   {
@@ -56,8 +56,7 @@ const projects = [
 ];
 
 const ProjectDetails = () => {
-
-  
+  const { isDarkMode } = useTheme();
   const { id } = useParams(); 
   const project = projects[id]; 
 
@@ -66,28 +65,28 @@ const ProjectDetails = () => {
   }
 
   return (
-    <div className="max-w-4xl p-20 mx-auto mt-10 text-white bg-gray-900 rounded-lg shadow-lg">
+    <div className="max-w-4xl p-20 mx-auto mt-10 bg-bg-secondary text-text-primary rounded-lg shadow-lg">
       <h2 className="mb-4 text-2xl font-bold">{project.name}</h2>
       <img src={project.image} alt={project.name} className="object-cover w-full h-64 rounded-lg" />
-      <p className="mt-4 text-gray-300">{project.description}</p>
-      <h3 className="mt-4 text-lg font-bold text-blue-400">Tech Stack:</h3>
+      <p className="mt-4 text-text-secondary">{project.description}</p>
+      <h3 className="mt-4 text-lg font-bold text-accent">Tech Stack:</h3>
       <ul className="flex flex-wrap mt-2 space-x-2">
         {project.techStack.map((tech, index) => (
-          <li key={index} className="px-3 py-1 text-sm bg-gray-700 rounded-md">
+          <li key={index} className="px-3 py-1 text-sm bg-bg-primary rounded-md">
             {tech}
           </li>
         ))}
       </ul>
-      <h3 className="mt-4 text-lg font-bold text-blue-400">Challenges:</h3>
+      <h3 className="mt-4 text-lg font-bold text-accent">Challenges:</h3>
       <ul className="mt-2 list-disc list-inside">
         {project.challenges.map((challenge, index) => (
-          <li key={index} className="text-gray-300">{challenge}</li>
+          <li key={index} className="text-text-secondary">{challenge}</li>
         ))}
       </ul>
-      <h3 className="mt-4 text-lg font-bold text-blue-400">Future Plans:</h3>
+      <h3 className="mt-4 text-lg font-bold text-accent">Future Plans:</h3>
       <ul className="mt-2 list-disc list-inside">
         {project.futurePlans.map((plan, index) => (
-          <li key={index} className="text-gray-300">{plan}</li>
+          <li key={index} className="text-text-secondary">{plan}</li>
         ))}
       </ul>
       <div className="flex mt-6 space-x-4">
@@ -95,7 +94,7 @@ const ProjectDetails = () => {
           href={project.liveLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="px-4 py-2 text-sm font-bold text-gray-900 transition bg-blue-500 border border-blue-600 rounded-lg shadow-lg hover:bg-blue-700 hover:text-white hover:shadow-blue-500/50"
+          className="px-4 py-2 text-sm font-bold transition bg-accent text-text-primary border border-accent/50 rounded-lg shadow-lg hover:bg-accent/80 hover:shadow-accent/30"
         >
           Visit Live
         </a>
@@ -103,13 +102,11 @@ const ProjectDetails = () => {
           href={project.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="px-4 py-2 text-sm font-bold text-gray-900 transition bg-gray-700 border border-gray-600 rounded-lg shadow-lg hover:bg-gray-800 hover:text-white hover:shadow-gray-500/50"
+          className="px-4 py-2 text-sm font-bold transition bg-bg-primary border border-accent/20 text-text-primary rounded-lg shadow-lg hover:bg-accent/20 hover:shadow-accent/20"
         >
           View Code
         </a>
-
       </div>
-      
     </div>
   );
 };

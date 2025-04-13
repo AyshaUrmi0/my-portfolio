@@ -1,103 +1,82 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { loadFull } from "tsparticles";
-import Particles from "react-tsparticles";
+import React, { useCallback } from "react";
+import { loadSlim } from "@tsparticles/slim";
+import { Particles } from "@tsparticles/react";
 import { useTheme } from "../context/ThemeContext";
 
 const ParticleBackground = () => {
   const { isDarkMode } = useTheme();
-  // Adding a key to force component remount when theme changes
-  const [key, setKey] = useState(isDarkMode ? "dark" : "light");
 
-  // Update key when theme changes
-  useEffect(() => {
-    setKey(isDarkMode ? "dark" : "light");
-  }, [isDarkMode]);
+  const particlesInit = useCallback(async (engine) => {
+    console.log("Initializing tsparticles");
+    await loadSlim(engine);
+  }, []);
 
-  const particlesInit = async (main) => {
-    await loadFull(main);
-  };
+  const particlesLoaded = useCallback((container) => {
+    console.log("Particles container loaded", container);
+  }, []);
 
-  const particlesLoaded = (container) => {
-    console.log("Particles loaded");
-  };
-
-  // Use useMemo to avoid recreating options object on every render
-  const options = useMemo(() => {
-    return {
-      fullScreen: false,
-      fpsLimit: 120,
-      interactivity: {
-        events: {
-          onClick: {
-            enable: true,
-            mode: "push",
-          },
-          onHover: {
-            enable: true,
-            mode: "repulse",
-          },
-          resize: true,
-        },
-        modes: {
-          push: {
-            quantity: 4,
-          },
-          repulse: {
-            distance: 100,
-            duration: 0.4,
-          },
-        },
+  // Configuration based on the current theme
+  const options = {
+    background: {
+      color: {
+        value: "transparent",
       },
-      particles: {
-        color: {
-          value: isDarkMode ? "var(--color-text-primary)" : "var(--color-text-primary)",
-        },
-        links: {
-          color: isDarkMode ? "var(--color-text-secondary)" : "var(--color-text-secondary)",
-          distance: 150,
-          enable: true,
-          opacity: isDarkMode ? 0.5 : 0.3,
-          width: 1,
-        },
-        move: {
-          direction: "none",
-          enable: true,
-          outModes: {
-            default: "bounce",
-          },
-          random: false,
-          speed: 2,
-          straight: false,
-        },
-        number: {
-          density: {
-            enable: true,
-            area: 800,
-          },
-          value: 80,
-        },
-        opacity: {
-          value: isDarkMode ? 0.5 : 0.3,
-        },
-        shape: {
-          type: "circle",
-        },
-        size: {
-          value: { min: 1, max: 5 },
-        },
+    },
+    fullScreen: false,
+    fpsLimit: 120,
+    particles: {
+      color: {
+        value: isDarkMode ? "#ffffff" : "#000000",
       },
-      detectRetina: true,
-    };
-  }, [isDarkMode]);
+      links: {
+        color: isDarkMode ? "#ffffff" : "#000000",
+        distance: 150,
+        enable: true,
+        opacity: isDarkMode ? 0.5 : 0.3,
+        width: 1,
+      },
+      collisions: {
+        enable: false,
+      },
+      move: {
+        direction: "none",
+        enable: true,
+        outModes: {
+          default: "bounce",
+        },
+        random: false,
+        speed: 1,
+        straight: false,
+      },
+      number: {
+        density: {
+          enable: true,
+          area: 800,
+        },
+        value: 80,
+      },
+      opacity: {
+        value: isDarkMode ? 0.8 : 0.5,
+      },
+      shape: {
+        type: "circle",
+      },
+      size: {
+        value: { min: 1, max: 5 },
+      },
+    },
+    detectRetina: true,
+  };
 
   return (
-    <Particles
-      key={key} // Add key to force remount on theme change
-      id="tsparticles"
-      init={particlesInit}
-      loaded={particlesLoaded}
-      options={options}
-    />
+    <div style={{ position: "fixed", width: "100%", height: "100%", top: 0, left: 0, zIndex: 0 }}>
+      <Particles
+        id="tsparticles"
+        options={options}
+        init={particlesInit}
+        loaded={particlesLoaded}
+      />
+    </div>
   );
 };
 
