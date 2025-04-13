@@ -85,19 +85,19 @@ const ContactInfo = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="relative inline-block mb-4 text-5xl font-bold">
+          <h2 className="relative inline-block mb-3 md:mb-4 text-3xl md:text-4xl lg:text-5xl font-bold">
             <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">Get In Touch</span>
-            <span className="absolute bottom-1 left-0 w-full h-3 bg-accent/10 rounded-lg -z-10"></span>
+            <span className="absolute bottom-1 left-0 w-full h-2 md:h-3 bg-accent/10 rounded-lg -z-10"></span>
           </h2>
-          <p className="max-w-2xl mx-auto text-xl text-text-secondary">
+          <p className="max-w-2xl mx-auto text-base md:text-lg lg:text-xl text-text-secondary">
             My inbox is always open. Whether you have a question or just want to say hello, 
             I'll try my best to get back to you!
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           {/* Left Column: Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -107,86 +107,86 @@ const ContactInfo = () => {
             className={`${isDarkMode 
               ? "bg-bg-secondary/50" 
               : "bg-white/90"
-            } backdrop-blur-md p-8 rounded-2xl border ${isDarkMode 
+            } backdrop-blur-md p-5 md:p-8 rounded-2xl border ${isDarkMode 
               ? "border-accent/10" 
               : "border-gray-200"
             } shadow-xl`}
           >
-            <div className="space-y-8">
+            <div className="space-y-6 md:space-y-8">
               <div>
-                <h3 className="text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">
+                <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">
                   Contact Information
                 </h3>
-                <p className="text-text-secondary mb-8">
+                <p className="text-sm md:text-base text-text-secondary mb-6 md:mb-8">
                   Feel free to reach out through any of these channels. I'm looking forward to connecting with you!
                 </p>
               </div>
 
               <motion.div 
-                className="space-y-6"
+                className="space-y-4 md:space-y-6"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ staggerChildren: 0.2, delayChildren: 0.3 }}
                 viewport={{ once: true }}
               >
                 <motion.div 
-                  className={`flex items-center space-x-4 p-4 rounded-xl transition-all ${isDarkMode 
+                  className={`flex items-center space-x-3 md:space-x-4 p-3 md:p-4 rounded-xl transition-all ${isDarkMode 
                     ? "bg-bg-primary/50 hover:bg-accent/10" 
                     : "bg-gray-50 hover:bg-blue-50"
                   } hover:translate-x-2 duration-300`}
                   whileHover={{ scale: 1.02 }}
                 >
-                  <div className={`p-3 rounded-full ${isDarkMode 
+                  <div className={`p-2 md:p-3 rounded-full ${isDarkMode 
                     ? "bg-accent/20 text-accent" 
                     : "bg-blue-100 text-blue-600"
                   }`}>
-                    <Mail size={24} />
+                    <Mail size={20} className="md:w-6 md:h-6" />
                   </div>
                   <div>
-                    <p className="text-sm text-text-secondary">Email</p>
-                    <a href="mailto:ayshaismail021@gmail.com" className={`text-lg font-medium hover:text-accent transition-colors ${isDarkMode ? "" : "text-gray-800"}`}>
+                    <p className="text-xs md:text-sm text-text-secondary">Email</p>
+                    <a href="mailto:ayshaismail021@gmail.com" className={`text-sm md:text-base lg:text-lg font-medium hover:text-accent transition-colors ${isDarkMode ? "" : "text-gray-800"}`}>
                       ayshaismail021@gmail.com
                     </a>
                   </div>
                 </motion.div>
 
                 <motion.div 
-                  className={`flex items-center space-x-4 p-4 rounded-xl transition-all ${isDarkMode 
+                  className={`flex items-center space-x-3 md:space-x-4 p-3 md:p-4 rounded-xl transition-all ${isDarkMode 
                     ? "bg-bg-primary/50 hover:bg-accent/10" 
                     : "bg-gray-50 hover:bg-blue-50"
                   } hover:translate-x-2 duration-300`}
                   whileHover={{ scale: 1.02 }}
                 >
-                  <div className={`p-3 rounded-full ${isDarkMode 
+                  <div className={`p-2 md:p-3 rounded-full ${isDarkMode 
                     ? "bg-accent/20 text-accent" 
                     : "bg-blue-100 text-blue-600"
                   }`}>
-                    <Phone size={24} />
+                    <Phone size={20} className="md:w-6 md:h-6" />
                   </div>
                   <div>
-                    <p className="text-sm text-text-secondary">Phone</p>
-                    <a href="tel:+your-phone-number" className={`text-lg font-medium hover:text-accent transition-colors ${isDarkMode ? "" : "text-gray-800"}`}>
+                    <p className="text-xs md:text-sm text-text-secondary">Phone</p>
+                    <a href="tel:+your-phone-number" className={`text-sm md:text-base lg:text-lg font-medium hover:text-accent transition-colors ${isDarkMode ? "" : "text-gray-800"}`}>
                       +your-phone-number
                     </a>
                   </div>
                 </motion.div>
 
                 <motion.div 
-                  className={`flex items-center space-x-4 p-4 rounded-xl transition-all ${isDarkMode 
+                  className={`flex items-center space-x-3 md:space-x-4 p-3 md:p-4 rounded-xl transition-all ${isDarkMode 
                     ? "bg-bg-primary/50 hover:bg-accent/10" 
                     : "bg-gray-50 hover:bg-blue-50"
                   } hover:translate-x-2 duration-300`}
                   whileHover={{ scale: 1.02 }}
                 >
-                  <div className={`p-3 rounded-full ${isDarkMode 
+                  <div className={`p-2 md:p-3 rounded-full ${isDarkMode 
                     ? "bg-accent/20 text-accent" 
                     : "bg-blue-100 text-blue-600"
                   }`}>
-                    <MessageSquare size={24} />
+                    <MessageSquare size={20} className="md:w-6 md:h-6" />
                   </div>
                   <div>
-                    <p className="text-sm text-text-secondary">WhatsApp</p>
-                    <a href="https://wa.me/your-whatsapp-number" className={`text-lg font-medium hover:text-accent transition-colors ${isDarkMode ? "" : "text-gray-800"}`}>
+                    <p className="text-xs md:text-sm text-text-secondary">WhatsApp</p>
+                    <a href="https://wa.me/your-whatsapp-number" className={`text-sm md:text-base lg:text-lg font-medium hover:text-accent transition-colors ${isDarkMode ? "" : "text-gray-800"}`}>
                       +your-whatsapp-number
                     </a>
                   </div>
@@ -194,16 +194,16 @@ const ContactInfo = () => {
               </motion.div>
 
               {/* Social Links */}
-              <div className="mt-12">
-                <h4 className="text-lg font-semibold mb-4 text-text-primary">Connect with me</h4>
-                <div className="flex space-x-4">
+              <div className="mt-8 md:mt-12">
+                <h4 className="text-base md:text-lg font-semibold mb-3 md:mb-4 text-text-primary">Connect with me</h4>
+                <div className="flex space-x-3 md:space-x-4">
                   {socialLinks.map((social, index) => (
                     <motion.a
                       key={index}
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`flex items-center justify-center p-3 text-white rounded-full shadow-lg ${social.color}`}
+                      className={`flex items-center justify-center p-2.5 md:p-3 text-white rounded-full shadow-lg ${social.color}`}
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       whileTap={{ scale: 0.9 }}
                       initial={{ opacity: 0, y: 20 }}
@@ -228,26 +228,26 @@ const ContactInfo = () => {
             className={`${isDarkMode 
               ? "bg-bg-secondary/50" 
               : "bg-white/90"
-            } backdrop-blur-md p-8 rounded-2xl border ${isDarkMode 
+            } backdrop-blur-md p-5 md:p-8 rounded-2xl border ${isDarkMode 
               ? "border-accent/10" 
               : "border-gray-200"
             } shadow-xl`}
           >
-            <h3 className="text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">
+            <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">
               Send a Message
             </h3>
-            <p className="text-text-secondary mb-8">
+            <p className="text-sm md:text-base text-text-secondary mb-6 md:mb-8">
               Have a project in mind or just want to say hi? Feel free to send me a message!
             </p>
 
-            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
                 viewport={{ once: true }}
               >
-                <label htmlFor="name" className="block text-sm font-medium text-text-secondary mb-2">Your Name</label>
+                <label htmlFor="name" className="block text-xs md:text-sm font-medium text-text-secondary mb-1.5 md:mb-2">Your Name</label>
                 <input
                   id="name"
                   type="text"
@@ -256,13 +256,13 @@ const ContactInfo = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
-                  className={`w-full p-4 ${isDarkMode 
+                  className={`w-full p-3 md:p-4 text-sm md:text-base ${isDarkMode 
                     ? "bg-bg-primary/80" 
                     : "bg-gray-50"
                   } text-text-primary border ${isDarkMode 
                     ? "border-accent/20" 
                     : "border-gray-200"
-                  } rounded-xl focus:ring-2 focus:ring-accent focus:border-transparent shadow-inner transition-all duration-300`}
+                  } rounded-lg md:rounded-xl focus:ring-2 focus:ring-accent focus:border-transparent shadow-inner transition-all duration-300`}
                 />
               </motion.div>
               <motion.div
@@ -271,7 +271,7 @@ const ContactInfo = () => {
                 transition={{ delay: 0.6 }}
                 viewport={{ once: true }}
               >
-                <label htmlFor="email" className="block text-sm font-medium text-text-secondary mb-2">Your Email</label>
+                <label htmlFor="email" className="block text-xs md:text-sm font-medium text-text-secondary mb-1.5 md:mb-2">Your Email</label>
                 <input
                   id="email"
                   type="email"
@@ -280,13 +280,13 @@ const ContactInfo = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className={`w-full p-4 ${isDarkMode 
+                  className={`w-full p-3 md:p-4 text-sm md:text-base ${isDarkMode 
                     ? "bg-bg-primary/80" 
                     : "bg-gray-50"
                   } text-text-primary border ${isDarkMode 
                     ? "border-accent/20" 
                     : "border-gray-200"
-                  } rounded-xl focus:ring-2 focus:ring-accent focus:border-transparent shadow-inner transition-all duration-300`}
+                  } rounded-lg md:rounded-xl focus:ring-2 focus:ring-accent focus:border-transparent shadow-inner transition-all duration-300`}
                 />
               </motion.div>
               <motion.div
@@ -295,7 +295,7 @@ const ContactInfo = () => {
                 transition={{ delay: 0.7 }}
                 viewport={{ once: true }}
               >
-                <label htmlFor="message" className="block text-sm font-medium text-text-secondary mb-2">Your Message</label>
+                <label htmlFor="message" className="block text-xs md:text-sm font-medium text-text-secondary mb-1.5 md:mb-2">Your Message</label>
                 <textarea
                   id="message"
                   name="message"
@@ -303,14 +303,14 @@ const ContactInfo = () => {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   required
-                  rows="5"
-                  className={`w-full p-4 ${isDarkMode 
+                  rows="4"
+                  className={`w-full p-3 md:p-4 text-sm md:text-base ${isDarkMode 
                     ? "bg-bg-primary/80" 
                     : "bg-gray-50"
                   } text-text-primary border ${isDarkMode 
                     ? "border-accent/20" 
                     : "border-gray-200"
-                  } rounded-xl focus:ring-2 focus:ring-accent focus:border-transparent shadow-inner transition-all duration-300`}
+                  } rounded-lg md:rounded-xl focus:ring-2 focus:ring-accent focus:border-transparent shadow-inner transition-all duration-300`}
                 ></textarea>
               </motion.div>
               <motion.div
@@ -325,10 +325,10 @@ const ContactInfo = () => {
                   disabled={isSubmitting}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`px-6 py-3.5 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-xl shadow-lg hover:shadow-blue-500/30 transition-all duration-300 flex items-center space-x-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                  className={`px-4 py-2.5 md:px-6 md:py-3.5 text-sm md:text-base bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-lg md:rounded-xl shadow-lg hover:shadow-blue-500/30 transition-all duration-300 flex items-center space-x-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                 >
                   <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
-                  <Send size={18} className={`${isSubmitting ? 'animate-pulse' : 'animate-none'} ml-2`} />
+                  <Send size={16} className={`md:w-[18px] md:h-[18px] ${isSubmitting ? 'animate-pulse' : 'animate-none'} ml-1.5 md:ml-2`} />
                 </motion.button>
               </motion.div>
             </form>
@@ -338,12 +338,12 @@ const ContactInfo = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
-                className={`mt-6 p-4 rounded-xl ${isDarkMode 
+                className={`mt-4 md:mt-6 p-3 md:p-4 rounded-lg md:rounded-xl ${isDarkMode 
                   ? "bg-green-500/20 border-green-500/30 text-green-400" 
                   : "bg-green-100 border-green-200 text-green-600"
-                } border flex items-center justify-center space-x-2`}
+                } border flex items-center justify-center space-x-1.5 md:space-x-2 text-sm md:text-base`}
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
                 </svg>
                 <span className="font-medium">Message sent successfully!</span>
