@@ -54,7 +54,7 @@ const Navbar = () => {
 
   return (
     <motion.div 
-      className="fixed top-8 left-0 right-0 mx-auto z-50 flex items-center justify-center px-4 py-2 md:px-6 md:py-3 lg:px-8 lg:py-4 rounded-full transition-all duration-300"
+      className="fixed top-0 left-0 right-0 mx-auto z-50 flex items-center justify-center px-4 py-2 md:px-6 md:py-3 lg:px-8 lg:py-4 rounded-full transition-all duration-300"
       style={{
         background: 'rgba(23, 23, 33, 0.85)',
         backdropFilter: 'blur(12px)',

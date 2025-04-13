@@ -4,6 +4,7 @@ import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 
 const ContactInfo = () => {
+  const canvasRef = useRef(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -72,7 +73,8 @@ const ContactInfo = () => {
   ];
 
   return (
-    <div className="py-28 bg-gradient-to-b from-bg-primary to-bg-secondary text-text-primary" id="contact">
+    <div className="py-28  text-text-primary" id="contact">
+       <canvas ref={canvasRef} className="absolute inset-0 z-0" />
       <div className="max-w-6xl mx-auto px-6">
         {/* Header Section */}
         <motion.div
