@@ -14,20 +14,18 @@ const MainLayout = () => {
     }, [isDarkMode]);
     
     return (
-        <div className="relative min-h-screen bg-bg-primary text-text-primary transition-colors duration-300">
-            {/* Particle background container */}
-            <div className="fixed inset-0 w-full h-full overflow-hidden z-0">
-                <ParticleBackground />
-            </div>
+        <div className="flex flex-col min-h-screen bg-bg-primary text-text-primary transition-colors duration-300">
+            {/* Particle background */}
+            <ParticleBackground />
             
-            {/* Content */}
-            <div className="relative z-10">
-                <Navbar />
-                <main className="min-h-screen">
-                    <Outlet />
-                </main>
-                <Footer />
-            </div>
+            {/* Content positioned above the particle background */}
+            <Navbar />
+            
+            <main className="flex-grow">
+                <Outlet />
+            </main>
+            
+            <Footer />
         </div>
     );
 };

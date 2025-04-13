@@ -26,14 +26,14 @@ const ParticleBackground = () => {
     fpsLimit: 120,
     particles: {
       color: {
-        value: isDarkMode ? "#ffffff" : "#000000",
+        value: isDarkMode ? "#ffffff" : "#0f172a",
       },
       links: {
-        color: isDarkMode ? "#ffffff" : "#000000",
+        color: isDarkMode ? "#ffffff" : "#1e293b",
         distance: 150,
         enable: true,
-        opacity: isDarkMode ? 0.5 : 0.3,
-        width: 1,
+        opacity: isDarkMode ? 0.5 : 0.6,
+        width: isDarkMode ? 1 : 1.2,
       },
       collisions: {
         enable: false,
@@ -45,7 +45,7 @@ const ParticleBackground = () => {
           default: "bounce",
         },
         random: false,
-        speed: 1,
+        speed: 1.2,
         straight: false,
       },
       number: {
@@ -53,16 +53,16 @@ const ParticleBackground = () => {
           enable: true,
           area: 800,
         },
-        value: 80,
+        value: isDarkMode ? 80 : 60,
       },
       opacity: {
-        value: isDarkMode ? 0.8 : 0.5,
+        value: isDarkMode ? 0.8 : 0.7,
       },
       shape: {
         type: "circle",
       },
       size: {
-        value: { min: 1, max: 5 },
+        value: { min: 1, max: isDarkMode ? 5 : 4 },
       },
     },
     detectRetina: true,

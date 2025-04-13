@@ -126,11 +126,11 @@ const Footer = () => {
               <input 
                 type="email" 
                 placeholder="Your email address" 
-                className="w-full px-3 py-2 text-sm bg-bg-primary border-none rounded-lg focus:ring-2 focus:ring-accent focus:outline-none"
+                className="w-full px-3 py-2 text-sm text-text-primary bg-bg-primary border-none rounded-lg focus:ring-2 focus:ring-accent focus:outline-none"
               />
               <motion.button 
                 type="submit"
-                className="w-full px-4 py-2 text-sm font-medium text-text-primary transition-all bg-accent rounded-lg hover:bg-accent/80"
+                className="w-full px-4 py-2 text-sm font-medium text-white transition-all bg-accent rounded-lg hover:bg-accent/80"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
