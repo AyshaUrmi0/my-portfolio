@@ -4,15 +4,12 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { AiOutlineHome, AiOutlineFolderOpen, AiOutlineBook, AiOutlineUser, AiOutlineTool } from "react-icons/ai";
 import { FaGraduationCap, FaBriefcase } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaSun, FaMoon } from "react-icons/fa";
 import DownloadResumeButton from "./DownloadResumeButton";
-import { useTheme } from "../context/ThemeContext";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [hoveredItem, setHoveredItem] = useState(null);
-  const { isDarkMode, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -59,13 +56,9 @@ const Navbar = () => {
     <motion.div 
       className="fixed top-8 left-0 right-0 mx-auto z-50 flex items-center justify-center px-4 py-2 md:px-6 md:py-3 lg:px-8 lg:py-4 rounded-full transition-all duration-300"
       style={{
-        background: isDarkMode 
-          ? 'rgba(23, 23, 33, 0.85)' 
-          : 'rgba(255, 255, 255, 0.85)',
+        background: 'rgba(23, 23, 33, 0.85)',
         backdropFilter: 'blur(12px)',
-        boxShadow: isDarkMode 
-          ? '0 8px 32px rgba(0, 0, 0, 0.3)' 
-          : '0 8px 32px rgba(0, 0, 0, 0.1)',
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
         maxWidth: '90%',
         width: 'fit-content',
         margin: '0 auto'
@@ -92,15 +85,13 @@ const Navbar = () => {
             <motion.div
               className="flex items-center justify-center p-2 md:p-2.5 lg:p-3 rounded-full"
               style={{
-                background: isDarkMode 
-                  ? 'rgba(59, 130, 246, 0.2)' 
-                  : 'rgba(59, 130, 246, 0.1)'
+                background: 'rgba(59, 130, 246, 0.2)'
               }}
             >
               <AiOutlineHome className="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 text-blue-500" />
             </motion.div>
-            <span className="font-medium text-sm md:text-base">Home</span>
-            </Link>
+            <span className="font-medium text-sm md:text-base text-white">Home</span>
+          </Link>
         </motion.div>
 
         {/* Navigation Items */}
@@ -119,45 +110,15 @@ const Navbar = () => {
               <motion.div
                 className="flex items-center justify-center p-2 md:p-2.5 lg:p-3 rounded-full"
                 style={{
-                  background: isDarkMode 
-                    ? 'rgba(59, 130, 246, 0.2)' 
-                    : 'rgba(59, 130, 246, 0.1)'
+                  background: 'rgba(59, 130, 246, 0.2)'
                 }}
               >
                 {item.icon}
               </motion.div>
-              <span className="font-medium text-sm md:text-base">{item.name}</span>
+              <span className="font-medium text-sm md:text-base text-white">{item.name}</span>
             </Link>
           </motion.div>
         ))}
-
-        {/* Theme Toggle */}
-        <motion.div
-          className="relative group"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <button
-            onClick={toggleTheme}
-            className="flex items-center justify-center space-x-1 md:space-x-2"
-            aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
-          >
-            <motion.div
-              className="flex items-center justify-center p-2 md:p-2.5 lg:p-3 rounded-full"
-              style={{
-                background: isDarkMode 
-                  ? 'rgba(59, 130, 246, 0.2)' 
-                  : 'rgba(59, 130, 246, 0.1)'
-              }}
-            >
-              {isDarkMode ? 
-                <FaSun className="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 text-yellow-300" /> : 
-                <FaMoon className="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 text-blue-300" />
-              }
-            </motion.div>
-            <span className="font-medium text-sm md:text-base">{isDarkMode ? "Light" : "Dark"}</span>
-          </button>
-        </motion.div>
 
         {/* Resume Button */}
         <motion.div
@@ -174,9 +135,7 @@ const Navbar = () => {
             <motion.div
               className="flex items-center justify-center p-2 md:p-2.5 lg:p-3 rounded-full"
               style={{
-                background: isDarkMode 
-                  ? 'rgba(59, 130, 246, 0.2)' 
-                  : 'rgba(59, 130, 246, 0.1)'
+                background: 'rgba(59, 130, 246, 0.2)'
               }}
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 text-purple-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -184,9 +143,9 @@ const Navbar = () => {
                 <polyline points="14 2 14 8 20 8"></polyline>
                 <line x1="12" y1="18" x2="12" y2="12"></line>
                 <line x1="9" y1="15" x2="15" y2="15"></line>
-          </svg>
+              </svg>
             </motion.div>
-            <span className="font-medium text-sm md:text-base">Resume</span>
+            <span className="font-medium text-sm md:text-base text-white">Resume</span>
           </Link>
         </motion.div>
       </div>

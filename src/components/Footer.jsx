@@ -23,7 +23,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative pt-16 pb-10 overflow-hidden bg-bg-secondary text-text-primary">
+    <footer className="relative pt-16 pb-10 overflow-hidden bg-bg-secondary/80 backdrop-blur-sm text-text-primary">
       {/* Background gradient */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute bg-blue-500 rounded-full w-96 h-96 -top-20 -left-20 mix-blend-multiply filter blur-3xl animate-blob"></div>

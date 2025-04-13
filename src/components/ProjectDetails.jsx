@@ -82,7 +82,7 @@ const ProjectDetails = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="max-w-4xl p-8 mx-auto mt-24 mb-20 bg-bg-secondary text-text-primary rounded-lg shadow-lg md:p-10 lg:p-20"
+      className="max-w-4xl p-8 mx-auto mt-24 mb-20 bg-bg-secondary/80 backdrop-blur-sm text-text-primary rounded-lg shadow-lg md:p-10 lg:p-20"
     >
       <div className="flex items-center mb-6">
         <button 

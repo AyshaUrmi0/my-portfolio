@@ -22,7 +22,7 @@ const Experience = () => {
   const { isDarkMode } = useTheme();
   
   return (
-    <div className="py-16 bg-bg-primary text-text-primary" id="experience">
+    <div className="py-16 bg-transparent text-text-primary" id="experience">
       <div className="max-w-4xl mx-auto text-center">
         <motion.h2
           className="mb-8 text-4xl font-bold text-accent"

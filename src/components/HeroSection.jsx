@@ -111,7 +111,7 @@ const Banner = () => {
       <canvas ref={canvasRef} className="absolute inset-0 z-0" />
       
       <motion.div 
-        className="relative flex flex-col items-center justify-center px-6 py-20 mt-6 overflow-hidden md:px-12 md:flex-row bg-bg-primary text-text-primary min-h-[90vh]"
+        className="relative flex flex-col items-center justify-center px-6 py-20 mt-6 overflow-hidden md:px-12 md:flex-row bg-transparent text-text-primary min-h-[90vh]"
         initial={{ opacity: 0 }} 
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}

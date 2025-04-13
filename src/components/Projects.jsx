@@ -61,7 +61,7 @@ const Projects = () => {
   const { isDarkMode } = useTheme();
 
   return (
-    <div className="py-28 bg-bg-primary text-text-primary" id="projects">
+    <div className="py-28 bg-transparent text-text-primary" id="projects">
       <div className="max-w-7xl px-6 mx-auto">
         {/* Enhanced Header Section */}
         <motion.div

@@ -4,19 +4,7 @@
 
 @layer base {
   :root {
-    /* Light mode variables */
-    --color-bg-primary: #f8fafc;
-    --color-bg-primary-rgb: 248, 250, 252;
-    --color-bg-secondary: #f1f5f9;
-    --color-bg-secondary-rgb: 241, 245, 249;
-    --color-text-primary: #0f172a;  /* Darkened for better contrast in light mode */
-    --color-text-secondary: #334155; /* Darkened secondary text for better visibility */
-    --color-accent: #3b82f6;
-    --color-accent-rgb: 59, 130, 246;
-  }
-
-  .dark {
-    /* Dark mode variables */
+    /* Dark theme variables */
     --color-bg-primary: #0f172a;
     --color-bg-primary-rgb: 15, 23, 42;
     --color-bg-secondary: #1e293b;
@@ -27,14 +15,9 @@
     --color-accent-rgb: 96, 165, 250;
   }
 
-  /* Apply smooth transitions when changing themes */
+  /* Apply smooth transitions for animations */
   *, *::before, *::after {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, fill 0.3s ease;
-  }
-
-  /* Disable transitions during theme change to prevent flicker */
-  .theme-transition * {
-    transition: none !important;
   }
 
   body {
@@ -60,6 +43,8 @@ body, html, #root {
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
 }
 
 /* Ensure main content is above particles but allows particles to be seen through */
@@ -111,11 +96,6 @@ main, header, footer, nav {
   to {
     transform: rotate(360deg);
   }
-}
-
-/* Transitions for theme switching */
-.theme-transition {
-  @apply transition-colors duration-300;
 }
 
 /* Custom scrollbar */

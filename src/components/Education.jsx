@@ -18,7 +18,7 @@ const Education = () => {
         </motion.h2>
         
         <motion.div
-          className="w-full p-6 mx-auto transition-all duration-300 bg-bg-secondary border border-accent shadow-lg md:w-3/4 rounded-xl hover:shadow-accent/20"
+          className="w-full p-6 mx-auto transition-all duration-300 bg-bg-secondary/80 backdrop-blur-sm border border-accent shadow-lg md:w-3/4 rounded-xl hover:shadow-accent/20"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}

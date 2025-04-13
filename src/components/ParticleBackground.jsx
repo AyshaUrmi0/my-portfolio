@@ -1,11 +1,8 @@
 import React, { useCallback } from "react";
 import { loadSlim } from "@tsparticles/slim";
 import { Particles } from "@tsparticles/react";
-import { useTheme } from "../context/ThemeContext";
 
 const ParticleBackground = () => {
-  const { isDarkMode } = useTheme();
-
   const particlesInit = useCallback(async (engine) => {
     console.log("Initializing tsparticles");
     await loadSlim(engine);
@@ -15,7 +12,7 @@ const ParticleBackground = () => {
     console.log("Particles container loaded", container);
   }, []);
 
-  // Configuration based on the current theme
+  // Configuration for dark theme
   const options = {
     background: {
       color: {
@@ -29,14 +26,14 @@ const ParticleBackground = () => {
     fpsLimit: 120,
     particles: {
       color: {
-        value: isDarkMode ? "#ffffff" : "#2d3748",
+        value: "#ffffff",
       },
       links: {
-        color: isDarkMode ? "#ffffff" : "#1e293b",
+        color: "#ffffff",
         distance: 150,
         enable: true,
-        opacity: isDarkMode ? 0.5 : 0.7,
-        width: isDarkMode ? 1 : 1.5,
+        opacity: 0.5,
+        width: 1,
       },
       collisions: {
         enable: false,
@@ -56,16 +53,16 @@ const ParticleBackground = () => {
           enable: true,
           area: 800,
         },
-        value: isDarkMode ? 80 : 70,
+        value: 80,
       },
       opacity: {
-        value: isDarkMode ? 0.8 : 0.9,
+        value: 0.8,
       },
       shape: {
         type: "circle",
       },
       size: {
-        value: { min: 1, max: isDarkMode ? 5 : 4 },
+        value: { min: 1, max: 5 },
       },
     },
     detectRetina: true,
