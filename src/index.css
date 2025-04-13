@@ -4,13 +4,13 @@
 
 @layer base {
   :root {
-    /* Light mode variables - updated for better contrast */
+    /* Light mode variables */
     --color-bg-primary: #f8fafc;
     --color-bg-secondary: #f1f5f9;
-    --color-text-primary: #0f172a; /* Darker text for better contrast in light mode */
-    --color-text-secondary: #334155; /* Darker secondary text */
-    --color-accent: #2563eb; /* Slightly darker blue for better contrast */
-    --color-accent-rgb: 37, 99, 235;
+    --color-text-primary: #0f172a;  /* Darkened for better contrast in light mode */
+    --color-text-secondary: #334155; /* Darkened secondary text for better visibility */
+    --color-accent: #3b82f6;
+    --color-accent-rgb: 59, 130, 246;
   }
 
   .dark {
@@ -97,4 +97,27 @@ main, header, footer, nav {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Transitions for theme switching */
+.theme-transition {
+  @apply transition-colors duration-300;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4b7fd9;
 }

@@ -64,15 +64,21 @@ const skills = [
 ];
 
 const SkillBar = ({ level, name }) => {
+    const { isDarkMode } = useTheme();
+    
     return (
         <div className="w-full mb-1">
             <div className="flex justify-between mb-1">
                 <span className="text-xs font-medium text-accent">{name}</span>
                 <span className="text-xs font-medium text-accent">{level}%</span>
             </div>
-            <div className="w-full h-2 bg-bg-secondary rounded-full">
+            <div className="w-full h-2 bg-bg-secondary/80 rounded-full shadow-inner">
                 <motion.div 
-                    className="h-2 rounded-full bg-gradient-to-r from-accent/70 to-accent"
+                    className={`h-2 rounded-full ${
+                        isDarkMode 
+                            ? "bg-gradient-to-r from-blue-500 to-purple-500" 
+                            : "bg-gradient-to-r from-blue-600 to-purple-600"
+                    }`}
                     initial={{ width: 0 }}
                     whileInView={{ width: `${level}%` }}
                     transition={{ duration: 1, ease: "easeOut" }}
