@@ -279,18 +279,14 @@ const AboutMe = () => {
                                         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                                     />
                                     
-                                    {/* Icon with gradient shadow for depth */}
+                                    {/* Glowing icon */}
                                     <motion.div 
-                                        className="text-3xl text-blue-400 drop-shadow-[0_0_3px_rgba(96,165,250,0.5)]"
-                                        style={{ 
-                                            background: 'linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%)',
-                                            WebkitBackgroundClip: 'text',
-                                            WebkitTextFillColor: 'transparent',
-                                            backgroundClip: 'text',
-                                            filter: 'drop-shadow(0 0 2px rgba(165, 180, 252, 0.5))'
-                                        }}
+                                        className="text-3xl text-blue-400 filter drop-shadow-[0_0_5px_rgba(96,165,250,0.5)]"
                                         whileHover={{ rotate: [0, -10, 10, -10, 0] }}
-                                        animate={{ scale: [1, 1.1, 1] }}
+                                        animate={{ 
+                                            scale: [1, 1.1, 1],
+                                            color: ["#60a5fa", "#93c5fd", "#60a5fa"]
+                                        }}
                                         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                                     >
                                         {hobby.icon}
