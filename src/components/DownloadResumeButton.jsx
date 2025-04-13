@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { FaFileDownload } from "react-icons/fa";
+import { useTheme } from "../context/ThemeContext";
 
 const DownloadResumeButton = () => {
+  const { isDarkMode } = useTheme();
+  
   return (
     <a 
       href="/Aysha_Akter_Urmi_CV.pdf" 
@@ -9,7 +12,7 @@ const DownloadResumeButton = () => {
       className="inline-block"
     >
       <motion.button
-        className="relative inline-flex items-center px-6 py-2.5 text-sm font-medium overflow-hidden rounded-full group bg-gray-800 text-white hover:text-white"
+        className="relative inline-flex items-center px-6 py-2.5 text-sm font-medium overflow-hidden rounded-full group bg-bg-secondary text-text-primary hover:text-text-primary"
         whileHover={{ 
           scale: 1.05,
           transition: { duration: 0.2 }
@@ -26,7 +29,7 @@ const DownloadResumeButton = () => {
         
         {/* Sparkle effects */}
         <motion.span 
-          className="absolute top-0 left-0 w-2 h-2 rounded-full bg-blue-400/70 blur-sm"
+          className="absolute top-0 left-0 w-2 h-2 rounded-full bg-accent/70 blur-sm"
           animate={{ 
             x: ["0%", "150%"],
             y: ["0%", "150%"],
@@ -58,12 +61,12 @@ const DownloadResumeButton = () => {
         />
         
         {/* Button content */}
-        <FaFileDownload className="relative z-10 mr-2 text-blue-400 group-hover:text-white transition-colors duration-300" />
+        <FaFileDownload className="relative z-10 mr-2 text-accent group-hover:text-white transition-colors duration-300" />
         <span className="relative z-10 transition-all duration-300">Download Resume</span>
         
         {/* Border Animation */}
         <motion.span 
-          className="absolute inset-0 border-2 border-blue-500 rounded-full"
+          className="absolute inset-0 border-2 border-accent rounded-full"
           initial={{ opacity: 0.6 }}
           whileHover={{ 
             opacity: 0,

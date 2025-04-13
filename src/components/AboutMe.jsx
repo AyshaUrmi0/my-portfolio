@@ -2,9 +2,11 @@ import React, { useEffect, useRef } from 'react';
 import { motion } from "framer-motion";
 import { FaBook, FaCode, FaPaintBrush, FaPuzzlePiece, FaUsers, FaLaptopCode } from "react-icons/fa";
 import { SiNextdotjs, SiTypescript } from "react-icons/si";
+import { useTheme } from '../context/ThemeContext';
 
 const AboutMe = () => {
     const canvasRef = useRef(null);
+    const { isDarkMode } = useTheme();
     
     // Particle animation effect - similar to HeroSection
     useEffect(() => {
@@ -27,7 +29,13 @@ const AboutMe = () => {
                 this.size = Math.random() * 1.5 + 0.5;
                 this.speedX = Math.random() * 0.3 - 0.15;
                 this.speedY = Math.random() * 0.3 - 0.15;
-                this.color = `rgba(${Math.floor(Math.random() * 50 + 100)}, ${Math.floor(Math.random() * 50 + 150)}, ${Math.floor(Math.random() * 100 + 200)}, ${Math.random() * 0.2 + 0.1})`;
+                
+                // Use theme-compatible colors
+                const r = Math.floor(Math.random() * 50 + 100);
+                const g = Math.floor(Math.random() * 50 + 150);
+                const b = Math.floor(Math.random() * 100 + 200);
+                const a = Math.random() * 0.2 + 0.1;
+                this.color = `rgba(${r}, ${g}, ${b}, ${a})`;
             }
             
             update() {
@@ -110,7 +118,7 @@ const AboutMe = () => {
     ];
 
     return (
-        <div className="relative px-6 py-20 overflow-hidden md:px-12 bg-gradient-to-b from-gray-900 to-black" id="about">
+        <div className="relative px-6 py-20 overflow-hidden md:px-12 bg-bg-primary" id="about">
             {/* Particle background */}
             <canvas ref={canvasRef} className="absolute inset-0 z-0" />
 
@@ -139,7 +147,7 @@ const AboutMe = () => {
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
                         <span className="relative z-10 text-transparent bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text">About Me</span>
-                        <span className="absolute bottom-1 left-0 w-full h-3 bg-blue-500/10 rounded-lg -z-10"></span>
+                        <span className="absolute bottom-1 left-0 w-full h-3 bg-accent/10 rounded-lg -z-10"></span>
                     </motion.h2>
                     
                     <div className="relative mx-auto w-28 h-1 mb-10">
@@ -153,25 +161,25 @@ const AboutMe = () => {
                 </motion.div>
 
                 <motion.div
-                    className="grid gap-8 md:grid-cols-2 items-center bg-gray-800/20 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/30"
+                    className="grid gap-8 md:grid-cols-2 items-center bg-bg-secondary/20 backdrop-blur-sm rounded-2xl p-6 border border-accent/10"
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.3 }}
                 >
                     <div className="text-left space-y-6">
                         <motion.p
-                            className="text-lg leading-relaxed text-gray-300"
+                            className="text-lg leading-relaxed text-text-secondary"
                             initial={{ opacity: 0, x: -30 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8, delay: 0.4 }}
                         >
                             Hello! I'm <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Urmi</span>, a passionate web developer from Bangladesh.  
-                            With a strong foundation in <span className="font-medium text-purple-400">React</span>, <span className="font-medium text-purple-400">Node.js</span>, and <span className="font-medium text-purple-400">Firebase</span>, 
+                            With a strong foundation in <span className="font-medium text-accent">React</span>, <span className="font-medium text-accent">Node.js</span>, and <span className="font-medium text-accent">Firebase</span>, 
                             I love building user-friendly, scalable web applications that bring ideas to life.
                         </motion.p>
                         
                         <motion.p
-                            className="text-lg leading-relaxed text-gray-300"
+                            className="text-lg leading-relaxed text-text-secondary"
                             initial={{ opacity: 0, x: -30 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8, delay: 0.5 }}
@@ -181,12 +189,12 @@ const AboutMe = () => {
                         </motion.p>
                         
                         <motion.p
-                            className="text-lg leading-relaxed text-gray-300"
+                            className="text-lg leading-relaxed text-text-secondary"
                             initial={{ opacity: 0, x: -30 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8, delay: 0.6 }}
                         >
-                            Alongside coding, I enjoy <span className="font-medium text-blue-400">exploring new technologies</span>, <span className="font-medium text-blue-400">reading books</span>, and <span className="font-medium text-blue-400">discovering new places</span>.  
+                            Alongside coding, I enjoy <span className="font-medium text-accent">exploring new technologies</span>, <span className="font-medium text-accent">reading books</span>, and <span className="font-medium text-accent">discovering new places</span>.  
                             I thrive in collaborative environments and always strive to improve my skills.
                         </motion.p>
                     </div>
@@ -198,41 +206,48 @@ const AboutMe = () => {
                         transition={{ duration: 0.8, delay: 0.6 }}
                     >
                         <div className="relative w-56 h-56 md:w-64 md:h-64">
+                            {/* Decorative rotating rings */}
                             <motion.div 
-                                className="absolute inset-0 rounded-full border-2 border-blue-400/30"
+                                className="absolute inset-0 border-4 rounded-full border-accent/20"
                                 animate={{ rotate: 360 }}
                                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                             />
+                            
                             <motion.div 
-                                className="absolute inset-0 rounded-full border-2 border-purple-400/20"
-                                style={{ margin: "-10px" }}
+                                className="absolute inset-0 m-4 border-4 rounded-full border-accent/10"
                                 animate={{ rotate: -360 }}
-                                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
                             />
+                            
+                            {/* Profile Image */}
                             <motion.img 
-                                src="https://i.ibb.co.com/ZzCfQZrH/Aysha-removebg-preview.png" 
-                                alt="Aysha Urmi" 
-                                className="rounded-full w-full h-full object-cover border-2 border-blue-500/40"
-                                whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(96, 165, 250, 0.6)" }}
+                                src="https://i.ibb.co/ZzCfQZrH/Aysha-removebg-preview.png" 
+                                alt="Aysha Urmi"
+                                className="object-cover w-full h-full p-2 rounded-full shadow-xl border-4 border-accent/20"
+                                whileHover={{ scale: 1.05 }}
+                                transition={{ duration: 0.3 }}
                             />
                         </div>
                         
-                        <div className="flex flex-wrap items-center justify-center gap-3">
-                            {skills.map((skill, index) => (
-                                <motion.div
+                        {/* Hobbies Icons */}
+                        <motion.div 
+                            className="grid grid-cols-3 gap-3"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.8 }}
+                        >
+                            {hobbies.map((hobby, index) => (
+                                <motion.div 
                                     key={index}
-                                    className="flex items-center gap-2 px-4 py-2 text-white transition-all duration-300 bg-gray-800/60 backdrop-blur-sm rounded-full hover:bg-gray-700/80 border border-gray-700/50"
-                                    whileHover={{ scale: 1.05, borderColor: "rgba(96, 165, 250, 0.5)" }}
-                                    whileTap={{ scale: 0.95 }}
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: index * 0.1 + 0.7 }}
+                                    className="flex flex-col items-center justify-center p-3 space-y-2 rounded-lg bg-bg-secondary/30 backdrop-blur-sm text-text-secondary"
+                                    whileHover={{ scale: 1.05, backgroundColor: "rgba(var(--color-accent-rgb), 0.2)" }}
+                                    transition={{ duration: 0.2 }}
                                 >
-                                    <span className="text-xl text-blue-400">{skill.icon}</span>
-                                    <span>{skill.name}</span>
+                                    <span className="text-accent text-xl">{hobby.icon}</span>
+                                    <span className="text-xs font-medium">{hobby.text}</span>
                                 </motion.div>
                             ))}
-                        </div>
+                        </motion.div>
                     </motion.div>
                 </motion.div>
 

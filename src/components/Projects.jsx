@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, Github, Code, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTheme } from "../context/ThemeContext";
 
 const projects = [
   {
@@ -57,9 +58,10 @@ const projects = [
 
 const Projects = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const { isDarkMode } = useTheme();
 
   return (
-    <div className="py-20 text-white bg-gradient-to-b from-gray-950 to-gray-900" id="projects">
+    <div className="py-20 bg-bg-primary text-text-primary" id="projects">
       <div className="max-w-6xl px-6 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -70,9 +72,9 @@ const Projects = () => {
         >
           <h2 className="relative inline-block mb-3 text-4xl font-bold">
             <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Projects</span>
-            <span className="absolute bottom-1 left-0 w-full h-3 bg-blue-500/10 rounded-lg -z-10"></span>
+            <span className="absolute bottom-1 left-0 w-full h-3 bg-accent/10 rounded-lg -z-10"></span>
           </h2>
-          <p className="max-w-2xl mx-auto text-lg text-gray-400">
+          <p className="max-w-2xl mx-auto text-lg text-text-secondary">
             Here are some of my recent projects showcasing my skills and experience
           </p>
         </motion.div>
@@ -89,7 +91,7 @@ const Projects = () => {
               onHoverStart={() => setHoveredIndex(index)}
               onHoverEnd={() => setHoveredIndex(null)}
             >
-              <div className="relative overflow-hidden bg-gray-800/50 backdrop-blur-sm rounded-xl shadow-xl shadow-black/20 border border-gray-700/50 h-full transform transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-blue-900/20">
+              <div className="relative overflow-hidden bg-bg-secondary/50 backdrop-blur-sm rounded-xl shadow-xl border border-accent/10 h-full transform transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-accent/10">
                 {/* Colored gradient overlay on hover */}
                 <div className="absolute inset-0 z-0 transition-opacity duration-300 opacity-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 group-hover:opacity-100"></div>
                 
@@ -97,7 +99,7 @@ const Projects = () => {
                 <div className="relative z-10">
                   {/* Project image with overlay */}
                   <div className="relative overflow-hidden">
-                    <div className="absolute inset-0 z-10 transition-opacity duration-500 opacity-0 bg-gradient-to-t from-gray-900 to-transparent group-hover:opacity-100"></div>
+                    <div className="absolute inset-0 z-10 transition-opacity duration-500 opacity-0 bg-gradient-to-t from-bg-secondary to-transparent group-hover:opacity-100"></div>
                     <img
                       src={project.image}
                       alt={project.name}
@@ -114,13 +116,13 @@ const Projects = () => {
                       {project.techStack.slice(0, 3).map((tech, techIndex) => (
                         <span 
                           key={techIndex} 
-                          className="px-2 py-1 text-xs font-medium text-white rounded-full bg-blue-500/80 backdrop-blur-sm"
+                          className="px-2 py-1 text-xs font-medium text-text-primary rounded-full bg-accent/80 backdrop-blur-sm"
                         >
                           {tech}
                         </span>
                       ))}
                       {project.techStack.length > 3 && (
-                        <span className="px-2 py-1 text-xs font-medium text-white rounded-full bg-purple-500/80 backdrop-blur-sm">
+                        <span className="px-2 py-1 text-xs font-medium text-text-primary rounded-full bg-purple-500/80 backdrop-blur-sm">
                           +{project.techStack.length - 3} more
                         </span>
                       )}
@@ -132,7 +134,7 @@ const Projects = () => {
                     <h3 className="mb-3 text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300">
                       {project.name}
                     </h3>
-                    <p className="mb-6 text-gray-400 line-clamp-3">
+                    <p className="mb-6 text-text-secondary line-clamp-3">
                       {project.description}
                     </p>
                     
@@ -140,7 +142,7 @@ const Projects = () => {
                     <div className="flex items-center justify-between mt-auto">
                       <Link
                         to={`/projects/${index}`}
-                        className="inline-flex items-center px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group-hover:bg-blue-600 bg-blue-500/80 text-white hover:shadow-lg hover:shadow-blue-600/30"
+                        className="inline-flex items-center px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group-hover:bg-accent bg-accent/80 text-text-primary hover:shadow-lg hover:shadow-accent/30"
                       >
                         View Details
                         <motion.span 
@@ -157,7 +159,7 @@ const Projects = () => {
                           href={project.liveLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center justify-center w-8 h-8 text-blue-400 transition-all rounded-full hover:bg-blue-500/20 hover:text-blue-300"
+                          className="flex items-center justify-center w-8 h-8 text-accent transition-all rounded-full hover:bg-accent/20 hover:text-accent"
                         >
                           <ExternalLink size={18} />
                         </a>
@@ -165,7 +167,7 @@ const Projects = () => {
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center justify-center w-8 h-8 text-gray-400 transition-all rounded-full hover:bg-gray-700 hover:text-white"
+                          className="flex items-center justify-center w-8 h-8 text-text-secondary transition-all rounded-full hover:bg-bg-secondary hover:text-text-primary"
                         >
                           <Github size={18} />
                         </a>
@@ -190,7 +192,7 @@ const Projects = () => {
             href="https://github.com/AyshaUrmi0" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="relative inline-flex items-center px-6 py-3 overflow-hidden text-lg font-medium text-white transition-all duration-300 rounded-lg group bg-gradient-to-br from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
+            className="relative inline-flex items-center px-6 py-3 overflow-hidden text-lg font-medium text-text-primary transition-all duration-300 rounded-lg group bg-gradient-to-br from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
           >
             <span className="relative group-hover:translate-x-1 transition-transform duration-300 flex items-center">
               View All Projects <Github className="ml-2" size={18} />

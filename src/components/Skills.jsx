@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { FaJs, FaPython, FaCuttlefish, FaReact, FaNodeJs, FaDatabase, FaServer, FaGitAlt, FaGithub, FaCodeBranch, FaFire, FaBootstrap, FaFigma, FaTools, FaNetworkWired } from "react-icons/fa";
 import { SiExpress, SiTailwindcss, SiMongodb, SiMysql, SiPostman, SiNetlify, SiPycharm, SiIntellijidea, SiMaterialdesign, SiNextdotjs, SiTypescript } from "react-icons/si";
 import { useState } from "react";
+import { useTheme } from "../context/ThemeContext";
 
 const skills = [
     {
@@ -66,12 +67,12 @@ const SkillBar = ({ level, name }) => {
     return (
         <div className="w-full mb-1">
             <div className="flex justify-between mb-1">
-                <span className="text-xs font-medium text-blue-300">{name}</span>
-                <span className="text-xs font-medium text-blue-300">{level}%</span>
+                <span className="text-xs font-medium text-accent">{name}</span>
+                <span className="text-xs font-medium text-accent">{level}%</span>
             </div>
-            <div className="w-full h-2 bg-gray-700 rounded-full">
+            <div className="w-full h-2 bg-bg-secondary rounded-full">
                 <motion.div 
-                    className="h-2 rounded-full bg-gradient-to-r from-blue-400 to-blue-600"
+                    className="h-2 rounded-full bg-gradient-to-r from-accent/70 to-accent"
                     initial={{ width: 0 }}
                     whileInView={{ width: `${level}%` }}
                     transition={{ duration: 1, ease: "easeOut" }}
@@ -85,9 +86,10 @@ const SkillBar = ({ level, name }) => {
 const Skills = () => {
     const [activeTab, setActiveTab] = useState(0);
     const [hoveredSkill, setHoveredSkill] = useState(null);
+    const { isDarkMode } = useTheme();
 
     return (
-        <div className="px-6 py-20 bg-gradient-to-b from-gray-900 to-gray-950" id="skills">
+        <div className="px-6 py-20 bg-bg-primary" id="skills">
             <div className="max-w-6xl mx-auto">
                 <motion.div
                     className="text-center mb-14"
@@ -98,9 +100,9 @@ const Skills = () => {
                 >
                     <h2 className="relative inline-block mb-3 text-5xl font-bold">
                         <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">My Skills</span>
-                        <span className="absolute bottom-1 left-0 w-full h-3 bg-blue-500/10 rounded-lg -z-10"></span>
+                        <span className="absolute bottom-1 left-0 w-full h-3 bg-accent/10 rounded-lg -z-10"></span>
                     </h2>
-                    <p className="max-w-2xl mx-auto text-xl text-gray-400">
+                    <p className="max-w-2xl mx-auto text-xl text-text-secondary">
                         Here's a showcase of my technical skills and proficiencies
                     </p>
                 </motion.div>
@@ -112,8 +114,8 @@ const Skills = () => {
                             key={index}
                             className={`flex items-center gap-2 px-5 py-3 rounded-full text-base font-medium transition-all duration-300 ${
                                 activeTab === index 
-                                ? `bg-gradient-to-r ${skill.color} text-white shadow-lg` 
-                                : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                                ? `bg-gradient-to-r ${skill.color} text-text-primary shadow-lg` 
+                                : 'bg-bg-secondary text-text-secondary hover:bg-bg-secondary/70'
                             }`}
                             onClick={() => setActiveTab(index)}
                             whileHover={{ scale: 1.05 }}
@@ -123,7 +125,7 @@ const Skills = () => {
                             transition={{ duration: 0.3, delay: index * 0.1 }}
                             viewport={{ once: true }}
                         >
-                            <span className={activeTab === index ? "text-white text-xl" : "text-blue-400 text-xl"}>{skill.icon}</span>
+                            <span className={activeTab === index ? "text-text-primary text-xl" : "text-accent text-xl"}>{skill.icon}</span>
                             {skill.category}
                         </motion.button>
                     ))}
@@ -131,7 +133,7 @@ const Skills = () => {
                 
                 {/* Active Category Description */}
                 <motion.p 
-                    className="max-w-2xl mx-auto mb-10 text-center text-lg text-gray-400"
+                    className="max-w-2xl mx-auto mb-10 text-center text-lg text-text-secondary"
                     key={activeTab}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -151,21 +153,21 @@ const Skills = () => {
                     {skills[activeTab].items.map((item, index) => (
                         <motion.div
                             key={index}
-                            className="p-5 overflow-hidden transition-all duration-300 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl hover:shadow-xl hover:shadow-blue-900/10"
+                            className="p-5 overflow-hidden transition-all duration-300 bg-bg-secondary/50 backdrop-blur-sm border border-accent/10 rounded-xl hover:shadow-xl hover:shadow-accent/10"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.3, delay: index * 0.05 }}
                             viewport={{ once: true }}
                             whileHover={{ 
                                 y: -5,
-                                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(59, 130, 246, 0.1)",
-                                borderColor: "rgba(59, 130, 246, 0.3)"
+                                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                                borderColor: "rgba(var(--color-accent-rgb), 0.3)"
                             }}
                             onHoverStart={() => setHoveredSkill(index)}
                             onHoverEnd={() => setHoveredSkill(null)}
                         >
                             <div className="flex items-center gap-4 mb-4">
-                                <div className={`flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br ${skills[activeTab].color} p-2.5 text-white`}>
+                                <div className={`flex items-center justify-center w-14 h-14 rounded-lg bg-gradient-to-br ${skills[activeTab].color} p-2.5 text-text-primary`}>
                                     <motion.div
                                         animate={hoveredSkill === index ? { rotate: 360 } : {}}
                                         transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -175,7 +177,7 @@ const Skills = () => {
                                     </motion.div>
                                 </div>
                                 <div>
-                                    <h3 className="text-2xl font-bold text-white">{item.name}</h3>
+                                    <h3 className="text-2xl font-bold text-text-primary">{item.name}</h3>
                                 </div>
                             </div>
                             <SkillBar level={item.level} name="Proficiency" />
@@ -191,14 +193,17 @@ const Skills = () => {
                     transition={{ duration: 0.5, delay: 0.3 }}
                     viewport={{ once: true }}
                 >
-                    <div className="max-w-3xl p-6 text-center rounded-xl bg-gradient-to-r from-blue-900/30 to-purple-900/30 border border-blue-800/20">
-                        <h3 className="mb-3 text-2xl font-bold text-blue-300">Looking to collaborate on a project?</h3>
-                        <p className="mb-5 text-gray-300">I'm always open to discussing new projects and opportunities.</p>
+                    <div className="max-w-3xl p-6 text-center rounded-xl bg-gradient-to-r from-blue-900/30 to-purple-900/30 border border-accent/20">
+                        <h3 className="mb-3 text-2xl font-bold text-accent">Looking to collaborate on a project?</h3>
+                        <p className="mb-5 text-text-secondary">I'm always open to discussing new projects and opportunities.</p>
                         <a 
                             href="#contact" 
-                            className="inline-flex items-center px-6 py-3 text-sm font-medium transition-all bg-blue-600 rounded-lg hover:bg-blue-700"
+                            className="inline-flex items-center px-6 py-3 text-sm font-medium transition-all bg-accent rounded-lg hover:bg-accent/80 text-text-primary"
                         >
                             Get in touch
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 ml-2 -mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
                         </a>
                     </div>
                 </motion.div>

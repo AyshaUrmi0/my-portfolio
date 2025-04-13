@@ -4,9 +4,11 @@ import { FaGithub, FaLinkedin, FaMedium, FaReact, FaNodeJs } from 'react-icons/f
 import { FaX } from 'react-icons/fa6';
 import { SiNextdotjs, SiTypescript, SiMongodb } from 'react-icons/si';
 import DownloadResumeButton from './DownloadResumeButton';
+import { useTheme } from '../context/ThemeContext';
 
 const Banner = () => {
   const canvasRef = useRef(null);
+  const { isDarkMode } = useTheme();
 
   // Particle animation effect
   useEffect(() => {
@@ -29,7 +31,13 @@ const Banner = () => {
         this.size = Math.random() * 2 + 0.5;
         this.speedX = Math.random() * 0.5 - 0.25;
         this.speedY = Math.random() * 0.5 - 0.25;
-        this.color = `rgba(${Math.floor(Math.random() * 50 + 100)}, ${Math.floor(Math.random() * 50 + 150)}, ${Math.floor(Math.random() * 100 + 200)}, ${Math.random() * 0.3 + 0.2})`;
+        
+        // Use theme-compatible colors
+        const r = Math.floor(Math.random() * 50 + 100);
+        const g = Math.floor(Math.random() * 50 + 150);
+        const b = Math.floor(Math.random() * 100 + 200);
+        const a = Math.random() * 0.3 + 0.2;
+        this.color = `rgba(${r}, ${g}, ${b}, ${a})`;
       }
       
       update() {
@@ -103,7 +111,7 @@ const Banner = () => {
       <canvas ref={canvasRef} className="absolute inset-0 z-0" />
       
       <motion.div 
-        className="relative flex flex-col items-center justify-center px-6 py-20 mt-6 overflow-hidden text-white md:px-12 md:flex-row bg-gradient-to-br from-gray-900 via-gray-950 to-black min-h-[90vh]"
+        className="relative flex flex-col items-center justify-center px-6 py-20 mt-6 overflow-hidden md:px-12 md:flex-row bg-bg-primary text-text-primary min-h-[90vh]"
         initial={{ opacity: 0 }} 
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -129,7 +137,7 @@ const Banner = () => {
           >
             <h1 className="mb-4">
               <motion.span 
-                className="block text-2xl font-light text-blue-400"
+                className="block text-2xl font-light text-accent"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -160,7 +168,7 @@ const Banner = () => {
             </motion.p>
             
             <motion.p
-              className="mb-6 text-xl font-light leading-relaxed text-gray-300"
+              className="mb-6 text-xl font-light leading-relaxed text-text-secondary"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
@@ -185,7 +193,7 @@ const Banner = () => {
               <motion.a
                 key={i}
                 href={link}
-                className="p-3 text-gray-400 transition-all duration-300 rounded-full hover:text-blue-400 hover:bg-white/10 backdrop-blur-md"
+                className="p-3 text-text-secondary transition-all duration-300 rounded-full hover:text-accent hover:bg-bg-secondary/50 backdrop-blur-md"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.1)" }}
@@ -216,13 +224,13 @@ const Banner = () => {
           <div className="relative">
             {/* Decorative rings */}
             <motion.div
-              className="absolute inset-0 border-4 rounded-full border-blue-400/30"
+              className="absolute inset-0 border-4 rounded-full border-accent/30"
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             />
             
             <motion.div
-              className="absolute inset-0 border-4 border-purple-400/20 rounded-full"
+              className="absolute inset-0 border-4 border-accent/20 rounded-full"
               style={{ margin: "-10px" }}
               animate={{ rotate: -360 }}
               transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
@@ -231,7 +239,7 @@ const Banner = () => {
             <motion.img
               src="https://i.ibb.co.com/ZzCfQZrH/Aysha-removebg-preview.png"
               alt="Profile"
-              className="relative w-4/5 mx-auto border-4 rounded-full shadow-2xl border-blue-400/50"
+              className="relative w-4/5 mx-auto border-4 rounded-full shadow-2xl border-accent/50"
               style={{
                 filter: "brightness(1.2)",
               }}
@@ -241,12 +249,12 @@ const Banner = () => {
 
             {/* Floating badges */}
             <motion.div 
-              className="absolute top-0 -right-4 bg-purple-600/80 text-white text-sm px-3 py-1 rounded-full backdrop-blur-sm flex items-center gap-1"
+              className="absolute top-0 -right-4 bg-accent/80 text-text-primary text-sm px-3 py-1 rounded-full backdrop-blur-sm flex items-center gap-1"
               initial={{ y: 0 }}
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
-              <FaReact className="text-white" size={14} />
+              <FaReact className="text-text-primary" size={14} />
               React
             </motion.div>
             <motion.div 
