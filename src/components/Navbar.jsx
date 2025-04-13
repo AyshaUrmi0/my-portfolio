@@ -39,8 +39,8 @@ const Navbar = () => {
 
   const navItems = [
     { name: "About", icon: <AiOutlineUser className="text-xl" />, link: "#about" },
-    { name: "Skills", icon: <AiOutlineTool className="text-xl" />, link: "#skills" },
     { name: "Projects", icon: <AiOutlineFolderOpen className="text-xl" />, link: "#projects" },
+    { name: "Skills", icon: <AiOutlineTool className="text-xl" />, link: "#skills" },
     { name: "Contact", icon: <AiOutlineBook className="text-xl" />, link: "#contact" }
   ];
 

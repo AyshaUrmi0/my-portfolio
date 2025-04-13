@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const projects = [
   {
     name: "FindConnect",
-    image: "/image/findconnect.png", // Replace with actual project image
+    image: "https://i.ibb.co/6c4hSGKK/findconnect.png", 
     techStack: ["React", "Tailwind CSS", "Firebase", "Node.js", "MongoDB"],
     description:
       "FindConnect is a platform designed to help people find and recover lost items. ",
@@ -23,7 +23,7 @@ const projects = [
   },
   {
     name: "TechSpring",
-    image: "/image/TechSpring.png",
+    image: "https://i.ibb.co.com/VcXy569W/techspring.png",
     techStack: ["React", "Tailwind CSS", "DaisyUI", "Express.js", "MongoDB"],
     description:
       "TechSpring-Client is a web application designed to facilitate the funding of tech startups, creative ideas, and personal causes.",
@@ -40,7 +40,7 @@ const projects = [
   },
   {
     name: "Winter Kindness Hub",
-    image: "/image/WinterKindnessHub.png",
+    image: "https://i.ibb.co.com/LXNVLvsJ/winter.png",
     techStack: ["React", "React Router", "JSON Server", "Framer Motion"],
     description:
       "A winter donation web application that connects donors with volunteers to provide winter clothing to those in need across Bangladesh. ",
@@ -95,7 +95,15 @@ const ProjectDetails = () => {
         <h2 className="text-2xl font-bold">{project.name}</h2>
       </div>
 
-      <img src={project.image} alt={project.name} className="object-cover w-full rounded-lg shadow-md h-64 md:h-80" />
+      <img 
+        src={project.image} 
+        alt={project.name} 
+        className="object-cover w-full rounded-lg shadow-md h-64 md:h-80" 
+        onError={(e) => {
+          e.target.onerror = null;
+          e.target.src = `https://placehold.co/800x400/3b82f6/ffffff?text=${project.name}`;
+        }}
+      />
       
       <p className="mt-6 text-text-secondary">{project.description}</p>
       

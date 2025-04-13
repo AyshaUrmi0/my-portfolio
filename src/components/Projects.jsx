@@ -7,7 +7,7 @@ import { useTheme } from "../context/ThemeContext";
 const projects = [
   {
     name: "FindConnect",
-    image: "/image/findconnect.png",
+    image: "https://i.ibb.co/6c4hSGKK/findconnect.png",
     techStack: ["React", "Tailwind CSS", "Firebase", "Node.js", "MongoDB"],
     description:
       "FindConnect is a platform designed to help people find and recover lost items.",
@@ -23,7 +23,7 @@ const projects = [
   },
   {
     name: "TechSpring",
-    image: "/image/TechSpring.png",
+    image: "https://i.ibb.co.com/VcXy569W/techspring.png",
     techStack: ["React", "Tailwind CSS", "DaisyUI", "Express.js", "MongoDB"],
     description:
       "TechSpring-Client is a web application designed to facilitate the funding of tech startups, creative ideas, and personal causes.",
@@ -40,7 +40,7 @@ const projects = [
   },
   {
     name: "Winter Kindness Hub",
-    image: "/image/WinterKindnessHub.png",
+    image: "https://i.ibb.co.com/LXNVLvsJ/winter.png",
     techStack: ["React", "React Router", "JSON Server", "Framer Motion"],
     description:
       "A winter donation web application that connects donors with volunteers to provide winter clothing to those in need across Bangladesh.",
@@ -61,25 +61,58 @@ const Projects = () => {
   const { isDarkMode } = useTheme();
 
   return (
-    <div className="py-20 bg-bg-primary text-text-primary" id="projects">
-      <div className="max-w-6xl px-6 mx-auto">
+    <div className="py-28 bg-bg-primary text-text-primary" id="projects">
+      <div className="max-w-7xl px-6 mx-auto">
+        {/* Enhanced Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-14"
+          className="text-center mb-10"
         >
-          <h2 className="relative inline-block mb-3 text-4xl font-bold">
-            <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Projects</span>
-            <span className="absolute bottom-1 left-0 w-full h-3 bg-accent/10 rounded-lg -z-10"></span>
-          </h2>
-          <p className="max-w-2xl mx-auto text-lg text-text-secondary">
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="relative inline-block mb-3 text-5xl font-bold">
+              <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Projects</span>
+              <span className="absolute bottom-1 left-0 w-full h-3 bg-accent/10 rounded-lg -z-10"></span>
+            </h2>
+          </motion.div>
+          <p className="max-w-2xl mx-auto text-xl text-text-secondary">
             Here are some of my recent projects showcasing my skills and experience
           </p>
         </motion.div>
 
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+        {/* New Introduction Section */}
+        <motion.div 
+          className="mb-16 p-8 rounded-2xl bg-gradient-to-r from-blue-500/5 to-purple-500/5 border border-accent/10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+        >
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+              My Development Philosophy
+            </h3>
+            <p className="text-text-secondary text-lg mb-4">
+              I specialize in building <span className="text-accent font-medium">modern web applications</span> with a focus on <span className="text-accent font-medium">clean code</span>, <span className="text-accent font-medium">performance</span>, and <span className="text-accent font-medium">user experience</span>. My projects range from interactive front-end applications to full-stack solutions.
+            </p>
+            <div className="flex flex-wrap gap-3 justify-center mt-6">
+              <span className="px-4 py-2 bg-bg-secondary/70 rounded-full text-accent font-medium">React & Next.js</span>
+              <span className="px-4 py-2 bg-bg-secondary/70 rounded-full text-accent font-medium">Responsive Design</span>
+              <span className="px-4 py-2 bg-bg-secondary/70 rounded-full text-accent font-medium">UX/UI Focus</span>
+              <span className="px-4 py-2 bg-bg-secondary/70 rounded-full text-accent font-medium">Full Stack Solutions</span>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Larger and Enhanced Project Cards */}
+        <div className="grid gap-12 md:grid-cols-2">
           {projects.map((project, index) => (
             <motion.div
               key={index}
@@ -90,8 +123,9 @@ const Projects = () => {
               viewport={{ once: true }}
               onHoverStart={() => setHoveredIndex(index)}
               onHoverEnd={() => setHoveredIndex(null)}
+              whileHover={{ y: -8 }}
             >
-              <div className="relative overflow-hidden bg-bg-secondary/50 backdrop-blur-sm rounded-xl shadow-xl border border-accent/10 h-full transform transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-accent/10">
+              <div className="relative overflow-hidden bg-bg-secondary/50 backdrop-blur-sm rounded-xl shadow-xl border border-accent/10 h-full transform transition-all duration-500 group-hover:shadow-lg group-hover:shadow-accent/20 group-hover:border-accent/30">
                 {/* Colored gradient overlay on hover */}
                 <div className="absolute inset-0 z-0 transition-opacity duration-300 opacity-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 group-hover:opacity-100"></div>
                 
@@ -103,7 +137,11 @@ const Projects = () => {
                     <img
                       src={project.image}
                       alt={project.name}
-                      className="object-cover w-full transform transition-transform duration-700 h-52 group-hover:scale-110"
+                      className="object-cover w-full transform transition-transform duration-700 h-72 group-hover:scale-110"
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = "https://placehold.co/800x500/3b82f6/ffffff?text=" + project.name;
+                      }}
                     />
                     
                     {/* Tech stack pills that appear on hover */}
@@ -114,63 +152,79 @@ const Projects = () => {
                       transition={{ duration: 0.3 }}
                     >
                       {project.techStack.slice(0, 3).map((tech, techIndex) => (
-                        <span 
+                        <motion.span 
                           key={techIndex} 
-                          className="px-2 py-1 text-xs font-medium text-text-primary rounded-full bg-accent/80 backdrop-blur-sm"
+                          className="px-3 py-1.5 text-sm font-medium text-text-primary rounded-full bg-accent/90 backdrop-blur-sm"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: techIndex * 0.1 }}
                         >
                           {tech}
-                        </span>
+                        </motion.span>
                       ))}
                       {project.techStack.length > 3 && (
-                        <span className="px-2 py-1 text-xs font-medium text-text-primary rounded-full bg-purple-500/80 backdrop-blur-sm">
+                        <motion.span 
+                          className="px-3 py-1.5 text-sm font-medium text-text-primary rounded-full bg-purple-500/90 backdrop-blur-sm"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: 0.3 }}
+                        >
                           +{project.techStack.length - 3} more
-                        </span>
+                        </motion.span>
                       )}
                     </motion.div>
                   </div>
                   
                   {/* Project details */}
-                  <div className="p-6">
-                    <h3 className="mb-3 text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300">
+                  <div className="p-8">
+                    <motion.h3 
+                      className="mb-3 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-400"
+                      whileHover={{ letterSpacing: "0.5px" }}
+                      transition={{ duration: 0.3 }}
+                    >
                       {project.name}
-                    </h3>
-                    <p className="mb-6 text-text-secondary line-clamp-3">
+                    </motion.h3>
+                    <p className="mb-6 text-lg text-text-secondary">
                       {project.description}
                     </p>
                     
                     {/* Action buttons */}
-                    <div className="flex items-center justify-between mt-auto">
+                    <div className="flex items-center justify-between mt-6">
                       <Link
                         to={`/projects/${index}`}
-                        className="inline-flex items-center px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group-hover:bg-accent bg-accent/80 text-text-primary hover:shadow-lg hover:shadow-accent/30"
+                        className="inline-flex items-center px-6 py-3 text-base font-medium transition-all duration-300 rounded-lg group-hover:bg-accent bg-accent/80 text-text-primary hover:shadow-lg hover:shadow-accent/30"
                       >
                         View Details
                         <motion.span 
                           animate={hoveredIndex === index ? { x: [0, 5, 0] } : { x: 0 }}
                           transition={{ repeat: hoveredIndex === index ? Infinity : 0, duration: 1 }}
-                          className="ml-1"
+                          className="ml-2"
                         >
-                          <ArrowRight size={16} />
+                          <ArrowRight size={18} />
                         </motion.span>
                       </Link>
                       
-                      <div className="flex space-x-2">
-                        <a
+                      <div className="flex space-x-3">
+                        <motion.a
                           href={project.liveLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center justify-center w-8 h-8 text-accent transition-all rounded-full hover:bg-accent/20 hover:text-accent"
+                          className="flex items-center justify-center w-10 h-10 text-accent transition-all rounded-full hover:bg-accent/20 hover:text-accent"
+                          whileHover={{ scale: 1.1, rotate: -5 }}
+                          whileTap={{ scale: 0.95 }}
                         >
-                          <ExternalLink size={18} />
-                        </a>
-                        <a
+                          <ExternalLink size={20} />
+                        </motion.a>
+                        <motion.a
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center justify-center w-8 h-8 text-text-secondary transition-all rounded-full hover:bg-bg-secondary hover:text-text-primary"
+                          className="flex items-center justify-center w-10 h-10 text-text-secondary transition-all rounded-full hover:bg-bg-secondary hover:text-text-primary"
+                          whileHover={{ scale: 1.1, rotate: 5 }}
+                          whileTap={{ scale: 0.95 }}
                         >
-                          <Github size={18} />
-                        </a>
+                          <Github size={20} />
+                        </motion.a>
                       </div>
                     </div>
                   </div>
@@ -180,24 +234,26 @@ const Projects = () => {
           ))}
         </div>
         
-        {/* View All Projects button */}
+        {/* Enhanced View All Projects button */}
         <motion.div 
-          className="flex justify-center mt-12"
+          className="flex justify-center mt-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <a 
+          <motion.a 
             href="https://github.com/AyshaUrmi0" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="relative inline-flex items-center px-6 py-3 overflow-hidden text-lg font-medium text-text-primary transition-all duration-300 rounded-lg group bg-gradient-to-br from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
+            className="relative inline-flex items-center px-8 py-4 overflow-hidden text-lg font-medium text-text-primary transition-all duration-300 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 shadow-md"
+            whileHover={{ scale: 1.05, boxShadow: "0 10px 25px -5px rgba(59, 130, 246, 0.4)" }}
+            whileTap={{ scale: 0.98 }}
           >
-            <span className="relative group-hover:translate-x-1 transition-transform duration-300 flex items-center">
-              View All Projects <Github className="ml-2" size={18} />
+            <span className="relative group-hover:translate-x-2 transition-transform duration-300 flex items-center">
+              View All Projects <Github className="ml-3" size={20} />
             </span>
-          </a>
+          </motion.a>
         </motion.div>
       </div>
     </div>

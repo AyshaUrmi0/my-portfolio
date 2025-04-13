@@ -24,10 +24,10 @@ export const router = createBrowserRouter([
             <div >
               <HeroSection /> 
               <AboutMe /> 
+              <Projects/>
               <Skills/> 
               <Education />
               <Experience/> 
-              <Projects/>
               <ContactInfo/>
                  
             </div>
