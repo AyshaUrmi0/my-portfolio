@@ -1,138 +1,18 @@
-import React, { useCallback } from 'react';
-import Particles from 'react-tsparticles';
-import { loadFull } from 'tsparticles';
+import React, { useEffect } from "react";
+import { loadFull } from "tsparticles";
+import Particles from "react-tsparticles";
+import { useTheme } from "../context/ThemeContext";
 
-const ParticleBackground = ({ isDarkMode = true }) => {
-  const particlesInit = useCallback(async (engine) => {
-    // Initialize the tsParticles instance
-    await loadFull(engine);
-  }, []);
+const ParticleBackground = () => {
+  const { isDarkMode } = useTheme();
 
-  const particlesLoaded = useCallback(async (container) => {
-    // Container loaded
-  }, []);
-
-  // Configuration for dark mode
-  const darkConfig = {
-    autoPlay: true,
-    fullScreen: {
-      enable: true,
-      zIndex: -1
-    },
-    detectRetina: true,
-    fpsLimit: 60,
-    particles: {
-      number: {
-        value: 100,
-        density: {
-          enable: true,
-          value_area: 1000
-        }
-      },
-      color: {
-        value: ["#3b82f6", "#8b5cf6", "#60a5fa", "#93c5fd"]
-      },
-      shape: {
-        type: "circle",
-        stroke: {
-          width: 0,
-          color: "#000000"
-        }
-      },
-      opacity: {
-        value: 0.5,
-        random: true,
-        anim: {
-          enable: true,
-          speed: 0.5,
-          opacity_min: 0.1,
-          sync: false
-        }
-      },
-      size: {
-        value: 3,
-        random: true,
-        anim: {
-          enable: true,
-          speed: 2,
-          size_min: 0.1,
-          sync: false
-        }
-      },
-      line_linked: {
-        enable: true,
-        distance: 150,
-        color: "#60a5fa",
-        opacity: 0.4,
-        width: 1
-      },
-      move: {
-        enable: true,
-        speed: 1,
-        direction: "none",
-        random: true,
-        straight: false,
-        out_mode: "out",
-        bounce: false,
-        attract: {
-          enable: false,
-          rotateX: 600,
-          rotateY: 1200
-        }
-      }
-    },
-    interactivity: {
-      detect_on: "canvas",
-      events: {
-        onhover: {
-          enable: true,
-          mode: "grab"
-        },
-        onclick: {
-          enable: true,
-          mode: "push"
-        },
-        resize: true
-      },
-      modes: {
-        grab: {
-          distance: 140,
-          line_linked: {
-            opacity: 0.8
-          }
-        },
-        push: {
-          particles_nb: 4
-        }
-      }
-    },
-    background: {
-      color: "transparent",
-      image: "",
-      position: "50% 50%",
-      repeat: "no-repeat",
-      size: "cover"
-    }
+  const particlesInit = async (main) => {
+    console.log("Initializing particles");
+    await loadFull(main);
   };
 
-  // Configuration for light mode
-  const lightConfig = {
-    ...darkConfig,
-    particles: {
-      ...darkConfig.particles,
-      color: {
-        value: ["#3b82f6", "#8b5cf6", "#4f46e5", "#6366f1"]
-      },
-      opacity: {
-        ...darkConfig.particles.opacity,
-        value: 0.7
-      },
-      line_linked: {
-        ...darkConfig.particles.line_linked,
-        color: "#3b82f6",
-        opacity: 0.5
-      }
-    }
+  const particlesLoaded = (container) => {
+    console.log("Particles loaded:", container);
   };
 
   return (
@@ -140,7 +20,71 @@ const ParticleBackground = ({ isDarkMode = true }) => {
       id="tsparticles"
       init={particlesInit}
       loaded={particlesLoaded}
-      options={isDarkMode ? darkConfig : lightConfig}
+      options={{
+        fullScreen: false,
+        fpsLimit: 120,
+        interactivity: {
+          events: {
+            onClick: {
+              enable: true,
+              mode: "push",
+            },
+            onHover: {
+              enable: true,
+              mode: "repulse",
+            },
+            resize: true,
+          },
+          modes: {
+            push: {
+              quantity: 4,
+            },
+            repulse: {
+              distance: 100,
+              duration: 0.4,
+            },
+          },
+        },
+        particles: {
+          color: {
+            value: isDarkMode ? "#ffffff" : "#000000",
+          },
+          links: {
+            color: isDarkMode ? "#ffffff" : "#000000",
+            distance: 150,
+            enable: true,
+            opacity: 0.5,
+            width: 1,
+          },
+          move: {
+            direction: "none",
+            enable: true,
+            outModes: {
+              default: "bounce",
+            },
+            random: false,
+            speed: 2,
+            straight: false,
+          },
+          number: {
+            density: {
+              enable: true,
+              area: 800,
+            },
+            value: 80,
+          },
+          opacity: {
+            value: isDarkMode ? 0.5 : 0.3,
+          },
+          shape: {
+            type: "circle",
+          },
+          size: {
+            value: { min: 1, max: 5 },
+          },
+        },
+        detectRetina: true,
+      }}
     />
   );
 };

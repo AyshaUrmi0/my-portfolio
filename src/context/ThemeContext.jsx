@@ -18,22 +18,25 @@ export const ThemeProvider = ({ children }) => {
 
   // Toggle between dark and light mode
   const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
+    setIsDarkMode(prevMode => !prevMode);
   };
 
-  // Update localStorage when theme changes
+  // Apply theme immediately on initial render and when theme changes
   useEffect(() => {
+    // Update localStorage
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
     
     // Apply theme to the document
-    const root = document.documentElement;
     if (isDarkMode) {
-      root.classList.add('dark');
-      root.classList.remove('light');
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
     } else {
-      root.classList.add('light');
-      root.classList.remove('dark');
+      document.documentElement.classList.remove('dark');
+      // No need to add 'light' class as Tailwind's dark mode strategy is based on presence/absence of 'dark'
     }
+    
+    // Force a re-render to ensure all components update
+    document.body.classList.toggle('theme-updated');
   }, [isDarkMode]);
 
   // Provide theme context to children

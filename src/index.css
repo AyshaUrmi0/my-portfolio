@@ -23,7 +23,25 @@
 
   body {
     @apply bg-bg-primary text-text-primary transition-colors duration-300;
+    overflow-x: hidden;
   }
+}
+
+/* Make sure the canvas covers the whole screen */
+#tsparticles {
+  position: fixed !important;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Make sure the canvas takes full height */
+body, html, #root {
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 @keyframes blob {
