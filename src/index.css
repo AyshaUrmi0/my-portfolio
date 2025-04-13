@@ -6,7 +6,9 @@
   :root {
     /* Light mode variables */
     --color-bg-primary: #f8fafc;
+    --color-bg-primary-rgb: 248, 250, 252;
     --color-bg-secondary: #f1f5f9;
+    --color-bg-secondary-rgb: 241, 245, 249;
     --color-text-primary: #0f172a;  /* Darkened for better contrast in light mode */
     --color-text-secondary: #334155; /* Darkened secondary text for better visibility */
     --color-accent: #3b82f6;
@@ -16,7 +18,9 @@
   .dark {
     /* Dark mode variables */
     --color-bg-primary: #0f172a;
+    --color-bg-primary-rgb: 15, 23, 42;
     --color-bg-secondary: #1e293b;
+    --color-bg-secondary-rgb: 30, 41, 59;
     --color-text-primary: #f8fafc;
     --color-text-secondary: #e2e8f0;
     --color-accent: #60a5fa;
@@ -34,8 +38,9 @@
   }
 
   body {
-    @apply bg-bg-primary text-text-primary transition-colors duration-300;
+    @apply text-text-primary transition-colors duration-300;
     overflow-x: hidden;
+    background: transparent;
   }
 }
 
@@ -57,10 +62,19 @@ body, html, #root {
   position: relative;
 }
 
-/* Ensure main content is above particles */
+/* Ensure main content is above particles but allows particles to be seen through */
 main, header, footer, nav {
   position: relative;
   z-index: 1;
+}
+
+/* Make component backgrounds more transparent to show particles */
+.bg-bg-primary {
+  background-color: rgba(var(--color-bg-primary-rgb), 0.7) !important;
+}
+
+.bg-bg-secondary {
+  background-color: rgba(var(--color-bg-secondary-rgb), 0.7) !important;
 }
 
 @keyframes blob {

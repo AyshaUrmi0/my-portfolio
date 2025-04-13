@@ -118,7 +118,7 @@ const AboutMe = () => {
     ];
 
     return (
-        <div className="relative px-6 py-20 overflow-hidden md:px-12 bg-bg-primary" id="about">
+        <div className="relative px-6 py-20 overflow-hidden md:px-12 " id="about">
             {/* Particle background */}
             <canvas ref={canvasRef} className="absolute inset-0 z-0" />
 

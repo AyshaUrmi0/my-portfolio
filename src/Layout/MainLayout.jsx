@@ -14,7 +14,7 @@ const MainLayout = () => {
     }, [isDarkMode]);
     
     return (
-        <div className="flex flex-col min-h-screen bg-bg-primary text-text-primary transition-colors duration-300">
+        <div className="flex flex-col min-h-screen transition-colors duration-300" style={{ backgroundColor: 'transparent' }}>
             {/* Particle background */}
             <ParticleBackground />
             

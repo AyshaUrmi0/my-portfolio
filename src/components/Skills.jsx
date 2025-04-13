@@ -72,7 +72,7 @@ const SkillBar = ({ level, name }) => {
                 <span className="text-xs font-medium text-accent">{name}</span>
                 <span className="text-xs font-medium text-accent">{level}%</span>
             </div>
-            <div className="w-full h-2 bg-bg-secondary/80 rounded-full shadow-inner">
+            <div className="w-full h-2  rounded-full shadow-inner">
                 <motion.div 
                     className={`h-2 rounded-full ${
                         isDarkMode 
@@ -95,7 +95,7 @@ const Skills = () => {
     const { isDarkMode } = useTheme();
 
     return (
-        <div className="px-6 py-20 bg-bg-primary" id="skills">
+        <div className="px-6 py-20 bg-transparent" id="skills">
             <div className="max-w-6xl mx-auto">
                 <motion.div
                     className="text-center mb-14"

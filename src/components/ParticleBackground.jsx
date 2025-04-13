@@ -22,18 +22,21 @@ const ParticleBackground = () => {
         value: "transparent",
       },
     },
-    fullScreen: false,
+    fullScreen: {
+      enable: true,
+      zIndex: -1
+    },
     fpsLimit: 120,
     particles: {
       color: {
-        value: isDarkMode ? "#ffffff" : "#0f172a",
+        value: isDarkMode ? "#ffffff" : "#2d3748",
       },
       links: {
         color: isDarkMode ? "#ffffff" : "#1e293b",
         distance: 150,
         enable: true,
-        opacity: isDarkMode ? 0.5 : 0.6,
-        width: isDarkMode ? 1 : 1.2,
+        opacity: isDarkMode ? 0.5 : 0.7,
+        width: isDarkMode ? 1 : 1.5,
       },
       collisions: {
         enable: false,
@@ -53,10 +56,10 @@ const ParticleBackground = () => {
           enable: true,
           area: 800,
         },
-        value: isDarkMode ? 80 : 60,
+        value: isDarkMode ? 80 : 70,
       },
       opacity: {
-        value: isDarkMode ? 0.8 : 0.7,
+        value: isDarkMode ? 0.8 : 0.9,
       },
       shape: {
         type: "circle",
@@ -69,7 +72,15 @@ const ParticleBackground = () => {
   };
 
   return (
-    <div style={{ position: "fixed", width: "100%", height: "100%", top: 0, left: 0, zIndex: 0 }}>
+    <div style={{ 
+      position: "fixed", 
+      width: "100%", 
+      height: "100%", 
+      top: 0, 
+      left: 0, 
+      zIndex: -1,
+      pointerEvents: "none"
+    }}>
       <Particles
         id="tsparticles"
         options={options}

@@ -6,7 +6,7 @@ const Education = () => {
   const { isDarkMode } = useTheme();
   
   return (
-    <div className="py-16 bg-bg-primary text-text-primary" id="education">
+    <div className="py-16  text-text-primary" id="education">
       <div className="max-w-4xl mx-auto text-center">
         <motion.h2
           className="mb-6 text-4xl font-bold text-accent"

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { HashLink as Link } from 'react-router-hash-link';
 import { useNavigate, useLocation } from "react-router-dom";
 import { AiOutlineHome, AiOutlineFolderOpen, AiOutlineBook, AiOutlineUser, AiOutlineTool } from "react-icons/ai";
+import { FaGraduationCap, FaBriefcase } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaSun, FaMoon } from "react-icons/fa";
 import DownloadResumeButton from "./DownloadResumeButton";
@@ -31,10 +32,12 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { name: "About", icon: <AiOutlineUser className="text-xl" />, link: "#about" },
-    { name: "Projects", icon: <AiOutlineFolderOpen className="text-xl" />, link: "#projects" },
-    { name: "Skills", icon: <AiOutlineTool className="text-xl" />, link: "#skills" },
-    { name: "Contact", icon: <AiOutlineBook className="text-xl" />, link: "#contact" }
+    { name: "About", icon: <AiOutlineUser className="text-xl md:text-2xl" />, link: "#about" },
+    { name: "Projects", icon: <AiOutlineFolderOpen className="text-xl md:text-2xl" />, link: "#projects" },
+    { name: "Education", icon: <FaGraduationCap className="text-xl md:text-2xl" />, link: "#education" },
+    { name: "Experience", icon: <FaBriefcase className="text-xl md:text-2xl" />, link: "#experience" },
+    { name: "Skills", icon: <AiOutlineTool className="text-xl md:text-2xl" />, link: "#skills" },
+    { name: "Contact", icon: <AiOutlineBook className="text-xl md:text-2xl" />, link: "#contact" }
   ];
 
   // Handle navigation with proper routing when on a subpage
@@ -54,61 +57,50 @@ const Navbar = () => {
 
   return (
     <motion.div 
-      className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 flex items-center justify-center px-4 py-2 rounded-full transition-all duration-300"
+      className="fixed top-8 left-0 right-0 mx-auto z-50 flex items-center justify-center px-4 py-2 md:px-6 md:py-3 lg:px-8 lg:py-4 rounded-full transition-all duration-300"
       style={{
         background: isDarkMode 
-          ? 'rgba(23, 23, 33, 0.8)' 
-          : 'rgba(255, 255, 255, 0.8)',
+          ? 'rgba(23, 23, 33, 0.85)' 
+          : 'rgba(255, 255, 255, 0.85)',
         backdropFilter: 'blur(12px)',
         boxShadow: isDarkMode 
           ? '0 8px 32px rgba(0, 0, 0, 0.3)' 
-          : '0 8px 32px rgba(0, 0, 0, 0.1)'
+          : '0 8px 32px rgba(0, 0, 0, 0.1)',
+        maxWidth: '90%',
+        width: 'fit-content',
+        margin: '0 auto'
       }}
-      initial={{ y: 100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      initial={{ opacity: 0, y: -100 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
     >
       {/* Progress Bar */}
       <div 
-        className="absolute top-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-t-full" 
+        className="absolute top-0 left-0 h-1 md:h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-t-full" 
         style={{ width: `${scrollProgress * 100}%` }}
       />
 
       {/* Main Dock Content */}
-      <div className="flex items-center justify-center space-x-1 md:space-x-2">
+      <div className="flex items-center justify-center space-x-3 md:space-x-6 lg:space-x-8">
         {/* Home/Logo Button */}
         <motion.div 
           className="relative group"
-          whileHover={{ scale: 1.2 }}
-          whileTap={{ scale: 0.9 }}
-          onHoverStart={() => setHoveredItem("home")}
-          onHoverEnd={() => setHoveredItem(null)}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
         >
-          <Link to="/" className="flex flex-col items-center justify-center">
+          <Link to="/" className="flex items-center justify-center space-x-1 md:space-x-2">
             <motion.div
-              className="flex items-center justify-center p-2 text-xl font-bold rounded-full"
+              className="flex items-center justify-center p-2 md:p-2.5 lg:p-3 rounded-full"
               style={{
                 background: isDarkMode 
                   ? 'rgba(59, 130, 246, 0.2)' 
                   : 'rgba(59, 130, 246, 0.1)'
               }}
             >
-              <AiOutlineHome className="w-5 h-5 text-blue-500" />
+              <AiOutlineHome className="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 text-blue-500" />
             </motion.div>
-            <AnimatePresence>
-              {hoveredItem === "home" && (
-                <motion.span
-                  className="absolute text-xs font-medium -top-6 bg-bg-secondary/90 text-text-primary px-2 py-1 rounded-md"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  Home
-                </motion.span>
-              )}
-            </AnimatePresence>
-          </Link>
+            <span className="font-medium text-sm md:text-base">Home</span>
+            </Link>
         </motion.div>
 
         {/* Navigation Items */}
@@ -116,18 +108,16 @@ const Navbar = () => {
           <motion.div
             key={index}
             className="relative group"
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.9 }}
-            onHoverStart={() => setHoveredItem(item.name)}
-            onHoverEnd={() => setHoveredItem(null)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
           >
             <Link
               to={item.link}
               onClick={(e) => location.pathname !== '/' && handleNavigation(e, item.link)}
-              className="flex flex-col items-center justify-center"
+              className="flex items-center justify-center space-x-1 md:space-x-2"
             >
               <motion.div
-                className="flex items-center justify-center p-2 rounded-full"
+                className="flex items-center justify-center p-2 md:p-2.5 lg:p-3 rounded-full"
                 style={{
                   background: isDarkMode 
                     ? 'rgba(59, 130, 246, 0.2)' 
@@ -136,19 +126,7 @@ const Navbar = () => {
               >
                 {item.icon}
               </motion.div>
-              <AnimatePresence>
-                {hoveredItem === item.name && (
-                  <motion.span
-                    className="absolute text-xs font-medium -top-6 bg-bg-secondary/90 text-text-primary px-2 py-1 rounded-md"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    {item.name}
-                  </motion.span>
-                )}
-              </AnimatePresence>
+              <span className="font-medium text-sm md:text-base">{item.name}</span>
             </Link>
           </motion.div>
         ))}
@@ -156,18 +134,16 @@ const Navbar = () => {
         {/* Theme Toggle */}
         <motion.div
           className="relative group"
-          whileHover={{ scale: 1.2 }}
-          whileTap={{ scale: 0.9 }}
-          onHoverStart={() => setHoveredItem("theme")}
-          onHoverEnd={() => setHoveredItem(null)}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
         >
           <button
             onClick={toggleTheme}
-            className="flex flex-col items-center justify-center"
+            className="flex items-center justify-center space-x-1 md:space-x-2"
             aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
           >
             <motion.div
-              className="flex items-center justify-center p-2 rounded-full"
+              className="flex items-center justify-center p-2 md:p-2.5 lg:p-3 rounded-full"
               style={{
                 background: isDarkMode 
                   ? 'rgba(59, 130, 246, 0.2)' 
@@ -175,64 +151,43 @@ const Navbar = () => {
               }}
             >
               {isDarkMode ? 
-                <FaSun className="w-5 h-5 text-yellow-300" /> : 
-                <FaMoon className="w-5 h-5 text-blue-300" />
+                <FaSun className="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 text-yellow-300" /> : 
+                <FaMoon className="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 text-blue-300" />
               }
             </motion.div>
-            <AnimatePresence>
-              {hoveredItem === "theme" && (
-                <motion.span
-                  className="absolute text-xs font-medium -top-6 bg-bg-secondary/90 text-text-primary px-2 py-1 rounded-md"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {isDarkMode ? "Light Mode" : "Dark Mode"}
-                </motion.span>
-              )}
-            </AnimatePresence>
+            <span className="font-medium text-sm md:text-base">{isDarkMode ? "Light" : "Dark"}</span>
           </button>
         </motion.div>
 
         {/* Resume Button */}
         <motion.div
           className="relative group"
-          whileHover={{ scale: 1.2 }}
-          whileTap={{ scale: 0.9 }}
-          onHoverStart={() => setHoveredItem("resume")}
-          onHoverEnd={() => setHoveredItem(null)}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
         >
-          <motion.div
-            className="flex items-center justify-center p-2 rounded-full"
-            style={{
-              background: isDarkMode 
-                ? 'rgba(59, 130, 246, 0.2)' 
-                : 'rgba(59, 130, 246, 0.1)'
-            }}
+          <Link 
+            to="/Aysha_Akter_Urmi_CV.pdf" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center justify-center space-x-1 md:space-x-2"
           >
-            <Link to="/Aysha_Akter_Urmi_CV.pdf" target="_blank" rel="noopener noreferrer">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-purple-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <motion.div
+              className="flex items-center justify-center p-2 md:p-2.5 lg:p-3 rounded-full"
+              style={{
+                background: isDarkMode 
+                  ? 'rgba(59, 130, 246, 0.2)' 
+                  : 'rgba(59, 130, 246, 0.1)'
+              }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 text-purple-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                 <polyline points="14 2 14 8 20 8"></polyline>
                 <line x1="12" y1="18" x2="12" y2="12"></line>
                 <line x1="9" y1="15" x2="15" y2="15"></line>
-              </svg>
-            </Link>
-          </motion.div>
-          <AnimatePresence>
-            {hoveredItem === "resume" && (
-              <motion.span
-                className="absolute text-xs font-medium -top-6 bg-bg-secondary/90 text-text-primary px-2 py-1 rounded-md"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 10 }}
-                transition={{ duration: 0.2 }}
-              >
-                Resume
-              </motion.span>
-            )}
-          </AnimatePresence>
+          </svg>
+            </motion.div>
+            <span className="font-medium text-sm md:text-base">Resume</span>
+          </Link>
         </motion.div>
       </div>
     </motion.div>
