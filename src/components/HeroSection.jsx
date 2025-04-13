@@ -259,8 +259,8 @@ const Banner = () => {
             <motion.div 
               className={`absolute top-0 -right-4 ${
                 isDarkMode 
-                  ? "bg-accent/90" 
-                  : "bg-blue-700"
+                  ? "bg-sky-500" 
+                  : "bg-sky-600"
               } text-white text-sm px-3 py-1 rounded-full backdrop-blur-sm shadow-md flex items-center gap-1`}
               initial={{ y: 0 }}
               animate={{ y: [0, -10, 0] }}
@@ -272,8 +272,8 @@ const Banner = () => {
             <motion.div 
               className={`absolute -bottom-2 -left-4 ${
                 isDarkMode 
-                  ? "bg-blue-600/90" 
-                  : "bg-blue-700"
+                  ? "bg-green-600" 
+                  : "bg-green-700"
               } text-white text-sm px-3 py-1 rounded-full backdrop-blur-sm shadow-md flex items-center gap-1`}
               initial={{ y: 0 }}
               animate={{ y: [0, 10, 0] }}

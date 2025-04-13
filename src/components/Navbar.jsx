@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { HashLink as Link } from 'react-router-hash-link';
-//import { Link } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { AiOutlineHome, AiOutlineFolderOpen, AiOutlineBook, AiOutlineUser, AiOutlineTool } from "react-icons/ai";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaSun, FaMoon } from "react-icons/fa";
@@ -12,6 +12,8 @@ const Navbar = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [scrolledNav, setScrolledNav] = useState(false);
   const { isDarkMode, toggleTheme } = useTheme();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   // Update scroll progress for the progress bar
   useEffect(() => {
@@ -41,6 +43,21 @@ const Navbar = () => {
     { name: "Projects", icon: <AiOutlineFolderOpen className="text-xl" />, link: "#projects" },
     { name: "Contact", icon: <AiOutlineBook className="text-xl" />, link: "#contact" }
   ];
+
+  // Handle navigation with proper routing when on a subpage
+  const handleNavigation = (e, link) => {
+    if (location.pathname !== '/') {
+      e.preventDefault();
+      navigate('/');
+      // Small delay to ensure navigation completes before scrolling
+      setTimeout(() => {
+        const element = document.querySelector(link);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
 
   return (
     <motion.div 
@@ -79,6 +96,7 @@ const Navbar = () => {
             <motion.li key={index} initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }}>
               <Link
                 to={item.link}
+                onClick={(e) => location.pathname !== '/' && handleNavigation(e, item.link)}
                 className="relative flex items-center px-4 py-2 space-x-2 font-medium text-text-primary transition-all duration-300 rounded-full hover:text-accent group"
               >
                 <span className="transition-all duration-300 group-hover:scale-110">{item.icon}</span>
@@ -168,8 +186,11 @@ const Navbar = () => {
                 >
                   <Link
                     to={item.link}
+                    onClick={(e) => {
+                      setMenuOpen(false);
+                      location.pathname !== '/' && handleNavigation(e, item.link);
+                    }}
                     className="flex items-center justify-center w-full px-4 py-3 space-x-3 font-medium text-text-primary transition-all duration-300 rounded-lg bg-bg-primary/50 hover:bg-accent/20 hover:text-accent"
-                    onClick={() => setMenuOpen(false)}
                   >
                     <span>{item.icon}</span>
                     <span>{item.name}</span>
