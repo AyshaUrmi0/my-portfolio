@@ -3,12 +3,15 @@ import { HashLink as Link } from 'react-router-hash-link';
 //import { Link } from "react-router-dom";
 import { AiOutlineHome, AiOutlineFolderOpen, AiOutlineBook, AiOutlineUser, AiOutlineTool } from "react-icons/ai";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaSun, FaMoon } from "react-icons/fa";
 import DownloadResumeButton from "./DownloadResumeButton";
+import { useTheme } from "../context/ThemeContext";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [scrolledNav, setScrolledNav] = useState(false);
+  const { isDarkMode, toggleTheme } = useTheme();
 
   // Update scroll progress for the progress bar
   useEffect(() => {
@@ -83,13 +86,41 @@ const Navbar = () => {
         </ul>
       </div>
 
-      {/* Right Side - Download Resume Button */}
-      <div className="hidden lg:flex">
+      {/* Right Side - Download Resume Button and Theme Toggle */}
+      <div className="hidden lg:flex items-center space-x-4">
+        {/* Theme toggle button */}
+        <motion.button
+          onClick={toggleTheme}
+          className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 text-white transition-all duration-300"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+        >
+          {isDarkMode ? 
+            <FaSun className="text-yellow-300" /> : 
+            <FaMoon className="text-blue-300" />
+          }
+        </motion.button>
+        
         <DownloadResumeButton />
       </div>
 
       {/* Hamburger Menu (Small Screens) */}
-      <div className="lg:hidden">
+      <div className="lg:hidden flex items-center space-x-4">
+        {/* Theme toggle button for mobile */}
+        <motion.button
+          onClick={toggleTheme}
+          className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 text-white transition-all duration-300"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+        >
+          {isDarkMode ? 
+            <FaSun className="text-yellow-300" /> : 
+            <FaMoon className="text-blue-300" />
+          }
+        </motion.button>
+        
         <button
           className="relative w-10 h-10 overflow-hidden transition-all duration-300 focus:outline-none group"
           onClick={() => setMenuOpen(!menuOpen)}
