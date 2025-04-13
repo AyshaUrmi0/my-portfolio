@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Briefcase, MapPin } from "lucide-react";
-import { useTheme } from "../context/ThemeContext";
 
 const experiences = [
   {
@@ -19,8 +18,6 @@ const experiences = [
 ];
 
 const Experience = () => {
-  const { isDarkMode } = useTheme();
-  
   return (
     <div className="py-16 bg-transparent text-text-primary" id="experience">
       <div className="max-w-4xl mx-auto text-center">
@@ -36,7 +33,7 @@ const Experience = () => {
         {experiences.map((exp, index) => (
           <motion.div
             key={index}
-            className="p-6 mb-6 transition-all duration-300 bg-bg-secondary border border-accent shadow-lg rounded-xl hover:shadow-accent/20"
+            className="p-6 mb-6 transition-all duration-300 bg-bg-secondary/80 backdrop-blur-sm border border-accent shadow-lg rounded-xl hover:shadow-accent/20"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.3 }}

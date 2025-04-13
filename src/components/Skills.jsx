@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { FaJs, FaPython, FaCuttlefish, FaReact, FaNodeJs, FaDatabase, FaServer, FaGitAlt, FaGithub, FaCodeBranch, FaFire, FaBootstrap, FaFigma, FaTools, FaNetworkWired } from "react-icons/fa";
 import { SiExpress, SiTailwindcss, SiMongodb, SiMysql, SiPostman, SiNetlify, SiPycharm, SiIntellijidea, SiMaterialdesign, SiNextdotjs, SiTypescript } from "react-icons/si";
 import { useState } from "react";
-import { useTheme } from "../context/ThemeContext";
 
 const skills = [
     {
@@ -64,21 +63,15 @@ const skills = [
 ];
 
 const SkillBar = ({ level, name }) => {
-    const { isDarkMode } = useTheme();
-    
     return (
         <div className="w-full mb-1">
             <div className="flex justify-between mb-1">
                 <span className="text-xs font-medium text-accent">{name}</span>
                 <span className="text-xs font-medium text-accent">{level}%</span>
             </div>
-            <div className="w-full h-2  rounded-full shadow-inner">
+            <div className="w-full h-2 rounded-full shadow-inner">
                 <motion.div 
-                    className={`h-2 rounded-full ${
-                        isDarkMode 
-                            ? "bg-gradient-to-r from-blue-500 to-purple-500" 
-                            : "bg-gradient-to-r from-blue-600 to-purple-600"
-                    }`}
+                    className="h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"
                     initial={{ width: 0 }}
                     whileInView={{ width: `${level}%` }}
                     transition={{ duration: 1, ease: "easeOut" }}
@@ -92,7 +85,6 @@ const SkillBar = ({ level, name }) => {
 const Skills = () => {
     const [activeTab, setActiveTab] = useState(0);
     const [hoveredSkill, setHoveredSkill] = useState(null);
-    const { isDarkMode } = useTheme();
 
     return (
         <div className="px-6 py-20 bg-transparent" id="skills">

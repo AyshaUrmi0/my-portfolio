@@ -1,8 +1,7 @@
-import { useParams, useNavigate } from "react-router-dom";
-import { HashLink as Link } from 'react-router-hash-link';
-import { useTheme } from "../context/ThemeContext";
-import { ArrowLeft } from "lucide-react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
+import { FaArrowLeft, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 const projects = [
   {
@@ -58,7 +57,6 @@ const projects = [
 ];
 
 const ProjectDetails = () => {
-  const { isDarkMode } = useTheme();
   const { id } = useParams();
   const navigate = useNavigate();
   const project = projects[id]; 
@@ -89,7 +87,7 @@ const ProjectDetails = () => {
           onClick={() => navigate('/')}
           className="flex items-center px-4 py-2 mr-4 text-sm font-medium transition-all duration-300 rounded-lg bg-bg-primary hover:bg-accent/20 text-text-primary"
         >
-          <ArrowLeft size={16} className="mr-2" />
+          <FaArrowLeft size={16} className="mr-2" />
           Back to Projects
         </button>
         <h2 className="text-2xl font-bold">{project.name}</h2>

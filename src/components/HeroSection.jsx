@@ -4,11 +4,9 @@ import { FaGithub, FaLinkedin, FaMedium, FaReact, FaNodeJs } from 'react-icons/f
 import { FaX } from 'react-icons/fa6';
 import { SiNextdotjs, SiTypescript, SiMongodb } from 'react-icons/si';
 import DownloadResumeButton from './DownloadResumeButton';
-import { useTheme } from '../context/ThemeContext';
 
 const Banner = () => {
   const canvasRef = useRef(null);
-  const { isDarkMode } = useTheme();
 
   // Particle animation effect
   useEffect(() => {
@@ -225,9 +223,7 @@ const Banner = () => {
             {/* Decorative rings */}
             <motion.div
               className={`absolute inset-0 border-4 rounded-full ${
-                isDarkMode 
-                ? "border-accent/30" 
-                : "border-accent/50"
+                "border-accent/50"
               }`}
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
@@ -235,9 +231,7 @@ const Banner = () => {
             
             <motion.div
               className={`absolute inset-0 border-4 rounded-full ${
-                isDarkMode 
-                ? "border-accent/20" 
-                : "border-blue-600/40"
+                "border-accent/20"
               }`}
               style={{ margin: "-10px" }}
               animate={{ rotate: -360 }}
@@ -251,17 +245,13 @@ const Banner = () => {
               style={{
                 filter: "brightness(1.2)",
               }}
-              whileHover={{ scale: 1.05, boxShadow: `0 0 25px ${isDarkMode ? "rgba(96, 165, 250, 0.6)" : "rgba(37, 99, 235, 0.6)"}` }}
+              whileHover={{ scale: 1.05, boxShadow: `0 0 25px rgba(37, 99, 235, 0.6)` }}
               transition={{ duration: 0.3 }}
             />
 
             {/* Floating badges */}
             <motion.div 
-              className={`absolute top-0 -right-4 ${
-                isDarkMode 
-                  ? "bg-sky-500" 
-                  : "bg-sky-600"
-              } text-white text-sm px-3 py-1 rounded-full backdrop-blur-sm shadow-md flex items-center gap-1`}
+              className="absolute top-0 -right-4 bg-sky-500 text-white text-sm px-3 py-1 rounded-full backdrop-blur-sm shadow-md flex items-center gap-1"
               initial={{ y: 0 }}
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -270,11 +260,7 @@ const Banner = () => {
               React
             </motion.div>
             <motion.div 
-              className={`absolute -bottom-2 -left-4 ${
-                isDarkMode 
-                  ? "bg-green-600" 
-                  : "bg-green-700"
-              } text-white text-sm px-3 py-1 rounded-full backdrop-blur-sm shadow-md flex items-center gap-1`}
+              className="absolute -bottom-2 -left-4 bg-green-600 text-white text-sm px-3 py-1 rounded-full backdrop-blur-sm shadow-md flex items-center gap-1"
               initial={{ y: 0 }}
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
@@ -283,11 +269,7 @@ const Banner = () => {
               MongoDB
             </motion.div>
             <motion.div 
-              className={`absolute top-1/2 -right-8 ${
-                isDarkMode 
-                  ? "bg-green-600/90" 
-                  : "bg-green-700"
-              } text-white text-sm px-3 py-1 rounded-full backdrop-blur-sm shadow-md flex items-center gap-1`}
+              className="absolute top-1/2 -right-8 bg-green-600/90 text-white text-sm px-3 py-1 rounded-full backdrop-blur-sm shadow-md flex items-center gap-1"
               initial={{ y: 0 }}
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
@@ -296,11 +278,7 @@ const Banner = () => {
               Node.js
             </motion.div>
             <motion.div 
-              className={`absolute top-1/3 -left-8 ${
-                isDarkMode 
-                  ? "bg-black/90" 
-                  : "bg-black"
-              } text-white text-sm px-3 py-1 rounded-full backdrop-blur-sm shadow-md flex items-center gap-1`}
+              className="absolute top-1/3 -left-8 bg-black/90 text-white text-sm px-3 py-1 rounded-full backdrop-blur-sm shadow-md flex items-center gap-1"
               initial={{ y: 0 }}
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut", delay: 0.7 }}
@@ -309,11 +287,7 @@ const Banner = () => {
               Next.js
             </motion.div>
             <motion.div 
-              className={`absolute bottom-1/3 right-0 ${
-                isDarkMode 
-                  ? "bg-blue-500/90" 
-                  : "bg-blue-700"
-              } text-white text-sm px-3 py-1 rounded-full backdrop-blur-sm shadow-md flex items-center gap-1`}
+              className="absolute bottom-1/3 right-0 bg-blue-500/90 text-white text-sm px-3 py-1 rounded-full backdrop-blur-sm shadow-md flex items-center gap-1"
               initial={{ y: 0 }}
               animate={{ y: [0, -7, 0] }}
               transition={{ duration: 3.7, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}

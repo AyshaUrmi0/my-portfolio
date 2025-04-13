@@ -2,11 +2,9 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaMedium, FaHeart, FaEnvelope, FaPhone } from 'react-icons/fa';
 import { FaX } from 'react-icons/fa6';
 import { HashLink as Link } from 'react-router-hash-link';
-import { useTheme } from '../context/ThemeContext';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const { isDarkMode } = useTheme();
   
   const footerLinks = [
     { name: "About", link: "#about" },

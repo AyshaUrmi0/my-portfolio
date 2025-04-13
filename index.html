@@ -1,21 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="https://img.icons8.com/fluency/48/coder-in-hoodie.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aysha Urmi</title>
-    <!-- Preload theme script to avoid flash of incorrect theme -->
-    <script>
-      // Check for theme in localStorage
-      const savedTheme = localStorage.getItem('theme');
-      // Apply dark class if saved as dark or system preference is dark
-      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-    </script>
   </head>
   <body>
     <div id="root"></div>

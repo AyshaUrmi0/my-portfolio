@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, Github, Code, ArrowRight } from "lucide-react";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useTheme } from "../context/ThemeContext";
 
 const projects = [
   {
@@ -58,7 +57,7 @@ const projects = [
 
 const Projects = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  const { isDarkMode } = useTheme();
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   return (
     <div className="py-28 bg-transparent text-text-primary" id="projects">
@@ -200,7 +199,7 @@ const Projects = () => {
                           transition={{ repeat: hoveredIndex === index ? Infinity : 0, duration: 1 }}
                           className="ml-2"
                         >
-                          <ArrowRight size={18} />
+                          <FaExternalLinkAlt size={18} />
                         </motion.span>
                       </Link>
                       
@@ -213,7 +212,7 @@ const Projects = () => {
                           whileHover={{ scale: 1.1, rotate: -5 }}
                           whileTap={{ scale: 0.95 }}
                         >
-                          <ExternalLink size={20} />
+                          <FaExternalLinkAlt size={20} />
                         </motion.a>
                         <motion.a
                           href={project.github}
@@ -223,7 +222,7 @@ const Projects = () => {
                           whileHover={{ scale: 1.1, rotate: 5 }}
                           whileTap={{ scale: 0.95 }}
                         >
-                          <Github size={20} />
+                          <FaGithub size={20} />
                         </motion.a>
                       </div>
                     </div>
@@ -251,7 +250,7 @@ const Projects = () => {
             whileTap={{ scale: 0.98 }}
           >
             <span className="relative group-hover:translate-x-2 transition-transform duration-300 flex items-center">
-              View All Projects <Github className="ml-3" size={20} />
+              View All Projects <FaGithub className="ml-3" size={20} />
             </span>
           </motion.a>
         </motion.div>

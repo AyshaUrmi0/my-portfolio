@@ -2,11 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import { motion } from "framer-motion";
 import { FaBook, FaCode, FaPaintBrush, FaPuzzlePiece, FaUsers, FaLaptopCode } from "react-icons/fa";
 import { SiNextdotjs, SiTypescript } from "react-icons/si";
-import { useTheme } from '../context/ThemeContext';
 
 const AboutMe = () => {
     const canvasRef = useRef(null);
-    const { isDarkMode } = useTheme();
     
     // Particle animation effect - similar to HeroSection
     useEffect(() => {
