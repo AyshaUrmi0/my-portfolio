@@ -9,7 +9,7 @@ const MainLayout = () => {
     const { isDarkMode } = useTheme();
     
     return (
-        <div className="relative min-h-screen">
+        <div className="relative min-h-screen bg-bg-primary text-text-primary transition-colors duration-300">
             {/* Particle background container */}
             <div className="absolute inset-0 overflow-hidden z-0">
                 <ParticleBackground />

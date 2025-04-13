@@ -2,9 +2,11 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaMedium, FaHeart, FaEnvelope, FaPhone } from 'react-icons/fa';
 import { FaX } from 'react-icons/fa6';
 import { HashLink as Link } from 'react-router-hash-link';
+import { useTheme } from '../context/ThemeContext';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { isDarkMode } = useTheme();
   
   const footerLinks = [
     { name: "About", link: "#about" },
@@ -21,7 +23,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative pt-16 pb-10 overflow-hidden bg-gray-900 text-gray-200">
+    <footer className="relative pt-16 pb-10 overflow-hidden bg-bg-secondary text-text-primary">
       {/* Background gradient */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute bg-blue-500 rounded-full w-96 h-96 -top-20 -left-20 mix-blend-multiply filter blur-3xl animate-blob"></div>
@@ -36,7 +38,7 @@ const Footer = () => {
             <Link to="/" className="inline-block text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
               AyshaUrmi
             </Link>
-            <p className="text-sm text-gray-400 max-w-[250px]">
+            <p className="text-sm text-text-secondary max-w-[250px]">
               A passionate full-stack developer focused on creating intuitive and efficient web solutions.
             </p>
             {/* Social icons */}
@@ -45,7 +47,7 @@ const Footer = () => {
                 <motion.a
                   key={index}
                   href={social.href}
-                  className="flex items-center justify-center w-10 h-10 transition-all duration-300 rounded-full bg-gray-800 hover:bg-blue-600 text-gray-400 hover:text-white"
+                  className="flex items-center justify-center w-10 h-10 transition-all duration-300 rounded-full bg-bg-primary hover:bg-accent hover:bg-opacity-70 text-text-secondary hover:text-text-primary"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
@@ -76,7 +78,7 @@ const Footer = () => {
                 >
                   <Link 
                     to={link.link}
-                    className="inline-block text-gray-400 transition-all duration-300 hover:text-blue-400 hover:translate-x-1"
+                    className="inline-block text-text-secondary transition-all duration-300 hover:text-accent hover:translate-x-1"
                   >
                     {link.name}
                   </Link>
@@ -90,25 +92,25 @@ const Footer = () => {
             <h3 className="mb-4 text-lg font-bold">Contact</h3>
             <ul className="space-y-3">
               <motion.li 
-                className="flex items-center gap-2 text-gray-400"
+                className="flex items-center gap-2 text-text-secondary"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
                 viewport={{ once: true }}
               >
-                <FaEnvelope className="text-blue-400" />
-                <a href="mailto:ayshaismail021@gmail.com" className="hover:text-blue-400 transition-colors">
+                <FaEnvelope className="text-accent" />
+                <a href="mailto:ayshaismail021@gmail.com" className="hover:text-accent transition-colors">
                   ayshaismail021@gmail.com
                 </a>
               </motion.li>
               <motion.li 
-                className="flex items-center gap-2 text-gray-400"
+                className="flex items-center gap-2 text-text-secondary"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: 0.1 }}
                 viewport={{ once: true }}
               >
-                <FaPhone className="text-blue-400" />
+                <FaPhone className="text-accent" />
                 <span>+880 1234567890</span>
               </motion.li>
             </ul>
@@ -117,18 +119,18 @@ const Footer = () => {
           {/* Newsletter */}
           <div>
             <h3 className="mb-4 text-lg font-bold">Stay Updated</h3>
-            <p className="mb-3 text-sm text-gray-400">
+            <p className="mb-3 text-sm text-text-secondary">
               Subscribe to receive updates about my latest projects
             </p>
             <form className="space-y-2">
               <input 
                 type="email" 
                 placeholder="Your email address" 
-                className="w-full px-3 py-2 text-sm bg-gray-800 border-none rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                className="w-full px-3 py-2 text-sm bg-bg-primary border-none rounded-lg focus:ring-2 focus:ring-accent focus:outline-none"
               />
               <motion.button 
                 type="submit"
-                className="w-full px-4 py-2 text-sm font-medium text-white transition-all bg-blue-600 rounded-lg hover:bg-blue-700"
+                className="w-full px-4 py-2 text-sm font-medium text-text-primary transition-all bg-accent rounded-lg hover:bg-accent/80"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -139,12 +141,12 @@ const Footer = () => {
         </div>
         
         {/* Divider */}
-        <div className="h-px mx-auto mb-8 bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
+        <div className="h-px mx-auto mb-8 bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
         
         {/* Footer bottom */}
         <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
           <motion.p 
-            className="text-sm text-gray-500"
+            className="text-sm text-text-secondary"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -154,7 +156,7 @@ const Footer = () => {
           </motion.p>
           
           <motion.p 
-            className="text-sm text-gray-500"
+            className="text-sm text-text-secondary"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -168,7 +170,7 @@ const Footer = () => {
             >
               <FaHeart size={14} />
             </motion.span> 
-            by <span className="font-semibold text-blue-400">Aysha Akter Urmi</span>
+            by <span className="font-semibold text-accent">Aysha Akter Urmi</span>
           </motion.p>
         </div>
       </div>

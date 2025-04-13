@@ -21,6 +21,16 @@
     --color-accent: #60a5fa;
   }
 
+  /* Apply smooth transitions when changing themes */
+  *, *::before, *::after {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, fill 0.3s ease;
+  }
+
+  /* Disable transitions during theme change to prevent flicker */
+  .theme-transition * {
+    transition: none !important;
+  }
+
   body {
     @apply bg-bg-primary text-text-primary transition-colors duration-300;
     overflow-x: hidden;

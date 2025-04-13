@@ -44,7 +44,11 @@ const Navbar = () => {
 
   return (
     <motion.div 
-      className={`fixed top-0 left-0 z-50 flex items-center justify-between w-full px-6 py-3 transition-all duration-300 ${scrolledNav ? 'bg-gray-950/95 backdrop-blur-md shadow-lg' : 'bg-gray-950/50 backdrop-blur-sm'}`}
+      className={`fixed top-0 left-0 z-50 flex items-center justify-between w-full px-6 py-3 transition-all duration-300 ${
+        scrolledNav 
+          ? 'bg-bg-secondary/95 backdrop-blur-md shadow-lg' 
+          : 'bg-bg-secondary/50 backdrop-blur-sm'
+      }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -75,7 +79,7 @@ const Navbar = () => {
             <motion.li key={index} initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }}>
               <Link
                 to={item.link}
-                className="relative flex items-center px-4 py-2 space-x-2 font-medium text-white transition-all duration-300 rounded-full hover:text-blue-400 group"
+                className="relative flex items-center px-4 py-2 space-x-2 font-medium text-text-primary transition-all duration-300 rounded-full hover:text-accent group"
               >
                 <span className="transition-all duration-300 group-hover:scale-110">{item.icon}</span>
                 <span>{item.name}</span>
@@ -91,7 +95,7 @@ const Navbar = () => {
         {/* Theme toggle button */}
         <motion.button
           onClick={toggleTheme}
-          className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 text-white transition-all duration-300"
+          className="flex items-center justify-center w-10 h-10 rounded-full bg-bg-secondary hover:bg-accent/20 text-text-primary transition-all duration-300"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
@@ -110,7 +114,7 @@ const Navbar = () => {
         {/* Theme toggle button for mobile */}
         <motion.button
           onClick={toggleTheme}
-          className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 text-white transition-all duration-300"
+          className="flex items-center justify-center w-10 h-10 rounded-full bg-bg-secondary hover:bg-accent/20 text-text-primary transition-all duration-300"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
@@ -127,15 +131,15 @@ const Navbar = () => {
         >
           <div className="flex flex-col items-center justify-center w-6 h-6 mx-auto space-y-1.5">
             <motion.span 
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}
+              className={`block w-6 h-0.5 bg-text-primary transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}
               animate={menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
             ></motion.span>
             <motion.span 
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? 'opacity-0' : 'opacity-100'}`}
+              className={`block w-6 h-0.5 bg-text-primary transition-all duration-300 ${menuOpen ? 'opacity-0' : 'opacity-100'}`}
               animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
             ></motion.span>
             <motion.span 
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}
+              className={`block w-6 h-0.5 bg-text-primary transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}
               animate={menuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
             ></motion.span>
           </div>
@@ -146,7 +150,7 @@ const Navbar = () => {
       <AnimatePresence>
         {menuOpen && (
           <motion.div 
-            className="absolute left-0 w-full backdrop-blur-lg bg-gray-900/95 shadow-lg lg:hidden top-16 rounded-b-xl overflow-hidden"
+            className="absolute left-0 w-full backdrop-blur-lg bg-bg-secondary/95 shadow-lg lg:hidden top-16 rounded-b-xl overflow-hidden"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -164,7 +168,7 @@ const Navbar = () => {
                 >
                   <Link
                     to={item.link}
-                    className="flex items-center justify-center w-full px-4 py-3 space-x-3 font-medium text-white transition-all duration-300 rounded-lg bg-gray-800/50 hover:bg-blue-900/30 hover:text-blue-400"
+                    className="flex items-center justify-center w-full px-4 py-3 space-x-3 font-medium text-text-primary transition-all duration-300 rounded-lg bg-bg-primary/50 hover:bg-accent/20 hover:text-accent"
                     onClick={() => setMenuOpen(false)}
                   >
                     <span>{item.icon}</span>
