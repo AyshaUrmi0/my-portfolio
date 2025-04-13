@@ -9,11 +9,18 @@ const MainLayout = () => {
     const { isDarkMode } = useTheme();
     
     return (
-        <div className=''>
-            <ParticleBackground isDarkMode={isDarkMode} />
-            <Navbar />  
-            <Outlet />
-            <Footer />
+        <div className='relative min-h-screen w-full'>
+            {/* Particle background */}
+            <div className="fixed inset-0 z-0 pointer-events-none">
+                <ParticleBackground isDarkMode={isDarkMode} />
+            </div>
+            
+            {/* Content */}
+            <div className="relative z-10">
+                <Navbar />  
+                <Outlet />
+                <Footer />
+            </div>
         </div>
     );
 };

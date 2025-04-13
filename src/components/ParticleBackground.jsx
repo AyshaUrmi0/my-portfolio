@@ -14,12 +14,19 @@ const ParticleBackground = ({ isDarkMode = true }) => {
 
   // Configuration for dark mode
   const darkConfig = {
+    autoPlay: true,
+    fullScreen: {
+      enable: true,
+      zIndex: -1
+    },
+    detectRetina: true,
+    fpsLimit: 60,
     particles: {
       number: {
-        value: 80,
+        value: 100,
         density: {
           enable: true,
-          value_area: 800
+          value_area: 1000
         }
       },
       color: {
@@ -33,7 +40,7 @@ const ParticleBackground = ({ isDarkMode = true }) => {
         }
       },
       opacity: {
-        value: 0.3,
+        value: 0.5,
         random: true,
         anim: {
           enable: true,
@@ -56,12 +63,12 @@ const ParticleBackground = ({ isDarkMode = true }) => {
         enable: true,
         distance: 150,
         color: "#60a5fa",
-        opacity: 0.2,
+        opacity: 0.4,
         width: 1
       },
       move: {
         enable: true,
-        speed: 0.8,
+        speed: 1,
         direction: "none",
         random: true,
         straight: false,
@@ -91,15 +98,14 @@ const ParticleBackground = ({ isDarkMode = true }) => {
         grab: {
           distance: 140,
           line_linked: {
-            opacity: 0.4
+            opacity: 0.8
           }
         },
         push: {
-          particles_nb: 3
+          particles_nb: 4
         }
       }
     },
-    retina_detect: true,
     background: {
       color: "transparent",
       image: "",
@@ -119,12 +125,12 @@ const ParticleBackground = ({ isDarkMode = true }) => {
       },
       opacity: {
         ...darkConfig.particles.opacity,
-        value: 0.4
+        value: 0.7
       },
       line_linked: {
         ...darkConfig.particles.line_linked,
         color: "#3b82f6",
-        opacity: 0.3
+        opacity: 0.5
       }
     }
   };
@@ -135,15 +141,6 @@ const ParticleBackground = ({ isDarkMode = true }) => {
       init={particlesInit}
       loaded={particlesLoaded}
       options={isDarkMode ? darkConfig : lightConfig}
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        zIndex: -10, // Behind all content
-        pointerEvents: 'none' // Allow interaction with elements behind
-      }}
     />
   );
 };
