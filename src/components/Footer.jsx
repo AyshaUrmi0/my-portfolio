@@ -109,7 +109,7 @@ const Footer = () => {
                 viewport={{ once: true }}
               >
                 <FaPhone className="text-accent" />
-                <span>+880 1234567890</span>
+                <span>+880 XXXXXXXXXX</span>
               </motion.li>
             </ul>
           </div>
