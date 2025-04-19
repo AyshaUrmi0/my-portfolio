@@ -101,12 +101,6 @@ const Navbar = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
       >
-        {/* Progress Bar */}
-        <div 
-          className="absolute top-0 left-0 h-1 md:h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-t-full" 
-          style={{ width: `${scrollProgress * 100}%` }}
-        />
-
         {/* Main Dock Content */}
         <div className="flex items-center justify-center space-x-3 md:space-x-6 lg:space-x-8">
           {/* Home/Logo Button */}
@@ -183,6 +177,12 @@ const Navbar = () => {
             </Link>
           </motion.div>
         </div>
+
+        {/* Progress Bar - Moved to bottom */}
+        <div 
+          className="absolute bottom-0 left-0 h-1 md:h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-b-full" 
+          style={{ width: `${scrollProgress * 100}%` }}
+        />
       </motion.div>
 
       {/* Mobile navbar with hamburger */}
@@ -197,12 +197,6 @@ const Navbar = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        {/* Progress Bar */}
-        <div 
-          className="absolute top-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500" 
-          style={{ width: `${scrollProgress * 100}%` }}
-        />
-        
         {/* Logo/Home */}
         <Link to="/" className="flex items-center space-x-2">
           <motion.div
@@ -222,6 +216,12 @@ const Navbar = () => {
         >
           {menuOpen ? <AiOutlineClose size={24} /> : <AiOutlineMenu size={24} />}
         </motion.button>
+
+        {/* Progress Bar - Moved to bottom */}
+        <div 
+          className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500" 
+          style={{ width: `${scrollProgress * 100}%` }}
+        />
       </motion.div>
 
       {/* Mobile drawer */}
