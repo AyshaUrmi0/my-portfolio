@@ -27,6 +27,15 @@ const Education = () => {
                 ></motion.span>
             </div>
             
+            <motion.p
+                className="max-w-2xl mx-auto text-lg text-text-secondary mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+            >
+                Get in touch to discuss my educational background and academic achievements
+            </motion.p>
+            
             <div className="flex flex-col items-center justify-center space-y-6 sm:space-y-8 px-4 sm:px-6">
                 <motion.div
                     className="w-full p-4 sm:p-6 md:p-8 mx-auto transition-all duration-300 bg-bg-secondary/80 backdrop-blur-sm border border-accent/30 shadow-lg md:w-3/4 rounded-xl hover:shadow-accent/20 hover:border-accent/50 group"

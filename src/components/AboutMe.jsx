@@ -156,6 +156,15 @@ const AboutMe = () => {
                             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                         ></motion.span>
                     </div>
+                    
+                    <motion.p
+                        className="max-w-2xl mx-auto text-lg text-text-secondary mb-8"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                    >
+                        Get in touch to learn more about my journey and how we can work together
+                    </motion.p>
                 </motion.div>
 
                 <motion.div

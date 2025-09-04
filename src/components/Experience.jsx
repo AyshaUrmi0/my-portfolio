@@ -40,6 +40,15 @@ const Experience = () => {
           ></motion.span>
         </div>
 
+        <motion.p
+          className="max-w-2xl mx-auto text-lg text-text-secondary mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          Get in touch to explore my professional experience and career journey
+        </motion.p>
+
         {experiences.map((exp, index) => (
           <motion.div
             key={index}
