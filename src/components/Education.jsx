@@ -6,14 +6,26 @@ const Education = () => {
     return (
         <div className="py-8 sm:py-12 md:py-16 text-center bg-transparent" id="education">
             <motion.h2 
-                className="mb-8 sm:mb-10 md:mb-12 text-3xl sm:text-4xl font-bold text-accent flex items-center justify-center gap-2"
+                className="relative inline-block mb-8 sm:mb-10 md:mb-12 text-3xl sm:text-4xl font-bold"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
             >
-                <FaGraduationCap className="text-2xl sm:text-3xl" />
-                Education
+                <span className="relative z-10 text-transparent bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text flex items-center justify-center gap-2">
+                    <FaGraduationCap className="text-2xl sm:text-3xl" />
+                    Education
+                </span>
+                <span className="absolute bottom-1 left-0 w-full h-3 bg-accent/10 rounded-lg -z-10"></span>
             </motion.h2>
+            
+            <div className="relative mx-auto w-28 h-1 mb-10">
+                <span className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full"></span>
+                <motion.span 
+                    className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-400 rounded-full" 
+                    animate={{ x: ["-100%", "100%"] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                ></motion.span>
+            </div>
             
             <div className="flex flex-col items-center justify-center space-y-6 sm:space-y-8 px-4 sm:px-6">
                 <motion.div

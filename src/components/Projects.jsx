@@ -80,6 +80,15 @@ const Projects = () => {
               <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Projects</span>
               <span className="absolute bottom-1 left-0 w-full h-3 bg-accent/10 rounded-lg -z-10"></span>
             </h2>
+            
+            <div className="relative mx-auto w-28 h-1 mb-10">
+              <span className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full"></span>
+              <motion.span 
+                  className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-400 rounded-full" 
+                  animate={{ x: ["-100%", "100%"] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              ></motion.span>
+            </div>
           </motion.div>
           <p className="max-w-2xl mx-auto text-xl text-text-secondary">
             Here are some of my recent projects showcasing my skills and experience

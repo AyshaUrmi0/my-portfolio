@@ -88,6 +88,15 @@ const ContactInfo = () => {
             <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">Get In Touch</span>
             <span className="absolute bottom-1 left-0 w-full h-2 md:h-3 bg-accent/10 rounded-lg -z-10"></span>
           </h2>
+          
+          <div className="relative mx-auto w-28 h-1 mb-10">
+            <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"></span>
+            <motion.span 
+                className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-500 rounded-full" 
+                animate={{ x: ["-100%", "100%"] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            ></motion.span>
+          </div>
           <p className="max-w-2xl mx-auto text-base md:text-lg lg:text-xl text-text-secondary">
             My inbox is always open. Whether you have a question or just want to say hello, 
             I'll try my best to get back to you!
