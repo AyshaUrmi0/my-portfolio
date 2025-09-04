@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FaJs, FaPython, FaCuttlefish, FaReact, FaNodeJs, FaDatabase, FaServer, FaGitAlt, FaGithub, FaCodeBranch, FaFire, FaBootstrap, FaFigma, FaTools, FaNetworkWired } from "react-icons/fa";
-import { SiExpress, SiTailwindcss, SiMongodb, SiMysql, SiPostman, SiNetlify, SiPycharm, SiIntellijidea, SiMaterialdesign, SiNextdotjs, SiTypescript } from "react-icons/si";
+import { SiExpress, SiTailwindcss, SiMongodb, SiMysql, SiPostman, SiNetlify, SiPycharm, SiIntellijidea, SiMaterialdesign, SiNextdotjs, SiTypescript, SiPostgresql, SiRedux, SiSwagger } from "react-icons/si";
 import { useState } from "react";
 
 const skills = [
@@ -26,6 +26,8 @@ const skills = [
             { name: "Next.js", icon: <SiNextdotjs />, level: 85 },
             { name: "Node.js", icon: <FaNodeJs />, level: 85 },
             { name: "Express.js", icon: <SiExpress />, level: 80 },
+            { name: "Redux Toolkit", icon: <SiRedux />, level: 88 },
+            { name: "RTK Query", icon: <SiRedux />, level: 85 },
             { name: "Tailwind CSS", icon: <SiTailwindcss />, level: 90 },
             { name: "DaisyUI", icon: <SiMaterialdesign />, level: 85 },
             { name: "Material Tailwind", icon: <SiMaterialdesign />, level: 80 },
@@ -40,7 +42,8 @@ const skills = [
         description: "Solutions I use for data storage and management",
         items: [
             { name: "MySQL", icon: <SiMysql />, level: 85 },
-            { name: "MongoDB", icon: <SiMongodb />, level: 90 }
+            { name: "MongoDB", icon: <SiMongodb />, level: 90 },
+            { name: "PostgreSQL", icon: <SiPostgresql />, level: 82 }
         ],
     },
     {
@@ -55,6 +58,7 @@ const skills = [
             { name: "PyCharm", icon: <SiPycharm />, level: 80 },
             { name: "IntelliJ", icon: <SiIntellijidea />, level: 75 },
             { name: "Postman", icon: <SiPostman />, level: 85 },
+            { name: "Swagger API", icon: <SiSwagger />, level: 80 },
             { name: "Figma", icon: <FaFigma />, level: 80 },
             { name: "Netlify", icon: <SiNetlify />, level: 85 },
             { name: "Firebase", icon: <FaFire />, level: 88 }
