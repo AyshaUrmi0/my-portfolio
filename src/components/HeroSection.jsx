@@ -2,14 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaMedium, FaReact, FaNodeJs } from 'react-icons/fa';
 import { FaX } from 'react-icons/fa6';
-import { SiNextdotjs, SiTypescript, SiMongodb } from 'react-icons/si';
+import { SiNextdotjs, SiTypescript, SiMongodb, SiPostgresql } from 'react-icons/si';
 import DownloadResumeButton from './DownloadResumeButton';
 
 const Banner = () => {
   return (
     <div className="relative overflow-hidden">
       <motion.div 
-        className="relative flex flex-col items-center justify-center px-6 py-20 overflow-hidden md:px-12 md:flex-row bg-transparent text-text-primary min-h-[90vh]"
+        className="relative flex flex-col items-center justify-center px-6 py-30 overflow-hidden md:px-12 md:flex-row bg-transparent text-text-primary min-h-[100vh]"
         initial={{ opacity: 0 }} 
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -71,7 +71,7 @@ const Banner = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
             >
-              Over the past months, I have honed my skills in React, Node.js, MongoDB, and full-stack development. Now I am exploring Next.js and Typescript.
+              Over the past months, I have honed my skills in React, Node.js, MongoDB, Next.js, TypeScript, and PostgreSQL. I am proficient in full-stack development and continue to explore new technologies.
             </motion.p>
           </motion.div>
 
@@ -194,6 +194,15 @@ const Banner = () => {
             >
               <SiTypescript className="text-white" size={14} />
               TypeScript
+            </motion.div>
+            <motion.div 
+              className="absolute bottom-0 right-1/2 bg-blue-600/90 text-white text-sm px-3 py-1 rounded-full backdrop-blur-sm shadow-md flex items-center gap-1"
+              initial={{ y: 0 }}
+              animate={{ y: [0, 6, 0] }}
+              transition={{ duration: 3.3, repeat: Infinity, ease: "easeInOut", delay: 0.9 }}
+            >
+              <SiPostgresql className="text-white" size={14} />
+              PostgreSQL
             </motion.div>
           </div>
         </motion.div>
